@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart-items",
+      "settings": {}
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "checkout-button": {
+          "type": "checkout-button",
+          "settings": {}
+        }
+      },
+      "block_order": ["subtotal", "checkout-button"],
+      "settings": {}
+    }
+  },
+  "order": ["main", "cart-footer"]
+}

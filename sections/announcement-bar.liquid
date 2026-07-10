@@ -1,0 +1,51 @@
+{% comment %}
+  Announcement Bar Section - Fiavelle Theme
+{% endcomment %}
+
+<div class="announcement-bar color-{{ section.settings.color_scheme }} gradient" id="AnnouncementBar" role="region" aria-label="{{ 'sections.header.announcement' | t }}">
+  <div class="announcement-bar__content page-width">
+    <p class="announcement-bar__message h5">
+      {%- if section.settings.text != blank -%}
+        {%- if section.settings.link != blank -%}
+          <a href="{{ section.settings.link }}" class="announcement-bar__link link link--text">
+            {{ section.settings.text | escape }}
+          </a>
+        {%- else -%}
+          {{ section.settings.text | escape }}
+        {%- endif -%}
+      {%- endif -%}
+    </p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Barra de Anuncios",
+  "tag": "section",
+  "class": "section-announcement-bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "default": "ENVÍO GRATIS EN COMPRAS SOBRE $50.000",
+      "label": "Texto del anuncio"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Enlace del anuncio"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "background-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barra de Anuncios"
+    }
+  ]
+}
+{% endschema %}

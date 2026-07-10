@@ -1,0 +1,78 @@
+{
+  "general": {
+    "password_page": {
+      "powered_by_shopify_html": "Con tecnología de <a href=\"https://www.shopify.com\" target=\"_blank\" rel=\"noopener noreferrer\">Shopify</a>"
+    }
+  },
+  "accessibility": {
+    "skip_to_text": "Saltar al contenido",
+    "close": "Cerrar",
+    "menu": "Menú",
+    "refresh_page": "Por favor actualiza la página para obtener una lista de artículos de carrito actualizados.",
+    "link_messages": {
+      "new_window": "Se abre en una nueva ventana"
+    }
+  },
+  "sections": {
+    "header": {
+      "announcement": "Anuncio",
+      "menu": "Menú",
+      "cart_count": {
+        "one": "{{ count }} artículo",
+        "other": "{{ count }} artículos"
+      }
+    },
+    "cart": {
+      "title": "Tu Carrito",
+      "empty": "Tu carrito está vacío",
+      "subtotal": "Subtotal",
+      "checkout": "Ir al Pago",
+      "taxes_and_shipping_policy_at_checkout_html": "Impuestos incluidos. Los <a href=\"{{ link }}\">gastos de envío</a> se calculan al pagar.",
+      "cart_error": "No fue posible actualizar el carrito. Por favor intenta nuevamente.",
+      "cart_quantity_error_html": "Solo puedes agregar un máximo de <strong>{{ quantity }}</strong> de este artículo al carrito."
+    },
+    "featured_collection": {
+      "view_all": "Ver Todo",
+      "view_all_label": "Ver todo {{ collection_name }}"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Agregar al Carrito",
+      "sold_out": "Agotado",
+      "unavailable": "No disponible",
+      "quantity": {
+        "input_label": "Cantidad para {{ product }}",
+        "decrease": "Disminuir cantidad para {{ product }}",
+        "increase": "Aumentar cantidad para {{ product }}"
+      },
+      "price": {
+        "regular_price": "Precio regular",
+        "sale_price": "Precio de oferta"
+      }
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Mi Cuenta"
+    },
+    "order": {
+      "details": "Detalles del pedido"
+    }
+  },
+  "newsletter": {
+    "label": "Tu correo electrónico",
+    "button_label": "Suscribirme",
+    "success": "¡Gracias por suscribirte! Te has unido a nuestra comunidad. Espera nuestras novedades en tu bandeja de entrada pronto."
+  },
+  "general": {
+    "continue_shopping": "Continuar Comprando",
+    "search": {
+      "search": "Buscar"
+    }
+  },
+  "paginate": {
+    "previous": "Anterior",
+    "next": "Siguiente"
+  }
+}

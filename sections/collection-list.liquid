@@ -1,0 +1,122 @@
+{% comment %}
+  Collection List Section - Fiavelle Theme
+  Asymmetric collage: 3 collections in grid where first spans 2 cols × 2 rows
+{% endcomment %}
+
+{%- if section.settings.title != blank -%}
+  <div class="collection-list-title center">
+    <h2 class="collection-list__title">{{ section.settings.title | escape }}</h2>
+  </div>
+{%- endif -%}
+
+<div class="collection-collage page-width page-width--narrow">
+  <div class="collection-collage__grid">
+    {%- for block in section.blocks -%}
+      {%- assign collection = collections[block.settings.collection] -%}
+      {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+
+      <div class="collection-collage__card collection-collage__card--{{ forloop.index }}" {{ block.shopify_attributes }}>
+        <a
+          class="collection-card"
+          href="{{ collection.url | default: '#' }}"
+        >
+          <div class="collection-card__image-wrapper">
+            {%- if collection.featured_image != blank -%}
+              {{
+                collection.featured_image
+                | image_url: width: 1100
+                | image_tag:
+                  class: 'collection-card__image',
+                  widths: '165, 360, 535, 750, 1100',
+                  alt: collection.title | escape,
+                  loading: 'lazy'
+              }}
+            {%- else -%}
+              {%- liquid
+                assign fallback_image = ''
+                if forloop.index == 1
+                  assign fallback_image = 'https://cdn.shopify.com/s/files/1/0843/0836/1436/files/lace_black_model_1783655867884.jpg?v=1783663573'
+                elsif forloop.index == 2
+                  assign fallback_image = 'https://cdn.shopify.com/s/files/1/0843/0836/1436/files/bralette_rose_model_1783655927098.jpg?v=1783663479'
+                elsif forloop.index == 3
+                  assign fallback_image = 'https://cdn.shopify.com/s/files/1/0843/0836/1436/files/robe_martini_model_1783655899470.jpg?v=1783663652'
+                endif
+              -%}
+              {%- if fallback_image != blank -%}
+                <img src="{{ fallback_image }}" class="collection-card__image" alt="{{ collection.title | default: block.settings.title | escape }}" loading="lazy" width="1100" height="1100">
+              {%- else -%}
+                {{ 'collection-apparel-' | append: placeholder_image_index | placeholder_svg_tag: 'collection-card__image placeholder' }}
+              {%- endif -%}
+            {%- endif -%}
+            <div class="collection-card__overlay"></div>
+          </div>
+          <div class="collection-card__label">
+            <h3 class="collection-card__title">
+              {{- collection.title | default: block.settings.title | escape -}}
+            </h3>
+            <span class="collection-card__link">Ver colección →</span>
+          </div>
+        </a>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collage de Colecciones",
+  "tag": "section",
+  "class": "section section-collection-list",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de sección",
+      "default": ""
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "background-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "Colección",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Colección"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título alternativo",
+          "info": "Se usa si la colección no tiene título"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+      "name": "Collage de Colecciones",
+      "blocks": [
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        },
+        {
+          "type": "featured_collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

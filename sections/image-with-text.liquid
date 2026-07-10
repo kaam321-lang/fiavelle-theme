@@ -1,0 +1,190 @@
+{% comment %}
+  Image With Text Section - Fiavelle Theme
+  50/50 split: image left + text right with CTA button
+{% endcomment %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<section class="image-with-text color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="image-with-text__grid page-width">
+    <div class="image-with-text__media-cell{% if section.settings.layout == 'text_first' %} image-with-text__media-cell--right{% endif %}">
+      {%- if section.settings.image != blank -%}
+        <div class="image-with-text__media image-with-text__media--{{ section.settings.height }}">
+          {{
+            section.settings.image
+            | image_url: width: 1500
+            | image_tag:
+              loading: 'lazy',
+              widths: '165, 360, 535, 750, 1070, 1500',
+              class: 'image-with-text__image',
+              alt: section.settings.image.alt | escape
+          }}
+        </div>
+      {%- else -%}
+        <div class="image-with-text__media image-with-text__media--{{ section.settings.height }} image-with-text__placeholder">
+          {{ 'collection-apparel-3' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="image-with-text__text-cell{% if section.settings.layout == 'text_first' %} image-with-text__text-cell--left{% endif %}">
+      <div class="image-with-text__content center-mobile {% if section.settings.desktop_content_position == 'top' %}image-with-text__content--top{% elsif section.settings.desktop_content_position == 'middle' %}image-with-text__content--middle{% else %}image-with-text__content--bottom{% endif %}">
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="image-with-text__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading | escape }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.text != blank -%}
+          <div class="image-with-text__text rte">
+            {{ section.settings.text }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <a
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+            class="btn btn--primary"
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Imagen con Texto",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "options": [
+        { "value": "adapt", "label": "Adaptable a imagen" },
+        { "value": "small", "label": "Pequeña" },
+        { "value": "medium", "label": "Mediana" },
+        { "value": "large", "label": "Grande" }
+      ],
+      "default": "adapt",
+      "label": "Altura de la imagen"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_width",
+      "options": [
+        { "value": "small", "label": "Pequeño" },
+        { "value": "medium", "label": "Mediano" },
+        { "value": "large", "label": "Grande" }
+      ],
+      "default": "medium",
+      "label": "Ancho imagen en escritorio"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        { "value": "image_first", "label": "Imagen a la izquierda" },
+        { "value": "text_first", "label": "Texto a la izquierda" }
+      ],
+      "default": "image_first",
+      "label": "Posición del escritorio"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        { "value": "top", "label": "Arriba" },
+        { "value": "middle", "label": "Centro" },
+        { "value": "bottom", "label": "Abajo" }
+      ],
+      "default": "middle",
+      "label": "Alineación vertical del contenido"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Nuestra Filosofía",
+      "label": "Título"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Pequeño" },
+        { "value": "h1", "label": "Mediano" },
+        { "value": "h0", "label": "Grande" }
+      ],
+      "default": "h1",
+      "label": "Tamaño del título"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "default": "<p>Texto de descripción aquí.</p>",
+      "label": "Descripción"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Conoce Nuestra Historia",
+      "label": "Texto del botón",
+      "info": "Deja en blanco para ocultar el botón"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del botón"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Imagen con Texto"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,233 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Fiavelle",
+    "theme_version": "1.0.0",
+    "theme_author": "Fiavelle Studio",
+    "theme_documentation_url": "",
+    "theme_support_url": ""
+  },
+  {
+    "name": "Colores",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Color primario",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Color secundario",
+        "default": "#cab4c9"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Color de fondo",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary_background",
+        "label": "Fondo secundario",
+        "default": "#f3f3f3"
+      },
+      {
+        "type": "color",
+        "id": "color_foreground",
+        "label": "Color del texto",
+        "default": "#121212"
+      },
+      {
+        "type": "color_scheme_group",
+        "id": "color_schemes",
+        "label": "Esquemas de color",
+        "definition": [
+          {
+            "id": "background-1",
+            "name": "Fondo 1"
+          },
+          {
+            "id": "background-2",
+            "name": "Fondo 2"
+          },
+          {
+            "id": "scheme-2",
+            "name": "Esquema 2"
+          }
+        ],
+        "role": {
+          "text": "foreground",
+          "background": "background",
+          "primary_button_border": "primary_button",
+          "primary_button_label": "primary_button_label",
+          "primary_button": "primary_button",
+          "secondary_button_border": "primary_button",
+          "secondary_button_label": "foreground",
+          "links": "foreground",
+          "icons": "foreground",
+          "heading": "foreground",
+          "card_background": "card_background",
+          "card_shadow": "shadow"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Tipografía",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "default": "montserrat_n4",
+        "label": "Fuente de títulos"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "default": "archivo_narrow_n4",
+        "label": "Fuente del cuerpo"
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "min": 100,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "Escala de títulos",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "body_scale",
+        "min": 100,
+        "max": 130,
+        "step": 5,
+        "unit": "%",
+        "label": "Escala del cuerpo",
+        "default": 105
+      }
+    ]
+  },
+  {
+    "name": "Diseño",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1000,
+        "max": 1600,
+        "step": 100,
+        "default": 1440,
+        "unit": "px",
+        "label": "Ancho de la página"
+      },
+      {
+        "type": "range",
+        "id": "spacing_sections",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "default": 0,
+        "unit": "px",
+        "label": "Espacio entre secciones en escritorio"
+      },
+      {
+        "type": "range",
+        "id": "spacing_sections_mobile",
+        "min": 0,
+        "max": 60,
+        "step": 4,
+        "default": 0,
+        "unit": "px",
+        "label": "Espacio entre secciones en móvil"
+      },
+      {
+        "type": "checkbox",
+        "id": "animations_reveal_on_scroll",
+        "label": "Animar secciones al hacer scroll",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "animations_hover_elements",
+        "label": "Efecto hover en elementos",
+        "options": [
+          {
+            "value": "none",
+            "label": "Ninguno"
+          },
+          {
+            "value": "zoom",
+            "label": "Zoom"
+          }
+        ],
+        "default": "zoom"
+      }
+    ]
+  },
+  {
+    "name": "Carrito",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Panel lateral"
+          },
+          {
+            "value": "page",
+            "label": "Página completa"
+          },
+          {
+            "value": "notification",
+            "label": "Notificación popup"
+          }
+        ],
+        "default": "drawer",
+        "label": "Tipo de carrito"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "16 x 16px recomendado para el favicon"
+      }
+    ]
+  },
+  {
+    "name": "Redes Sociales",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok_link",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_link",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_pinterest_link",
+        "label": "Pinterest"
+      }
+    ]
+  }
+]
