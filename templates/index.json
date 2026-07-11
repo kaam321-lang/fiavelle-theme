@@ -40,7 +40,7 @@
       "settings": {
         "title": "Destacados",
         "heading_size": "h2",
-        "collection": "frontpage",
+        "collection": "home-page",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
