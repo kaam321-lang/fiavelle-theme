@@ -43,29 +43,27 @@
     >
       {%- if product_card_product.featured_media -%}
         <!-- Primary Image -->
-        {{
-          product_card_product.featured_media
-          | image_url: width: 800
-          | image_tag:
-            loading: lazy_load | default: 'lazy',
-            class: 'product-card__image product-card__image--primary',
-            widths: '165, 360, 533, 720, 940, 1066',
-            alt: product_card_product.featured_media.alt | escape,
-            sizes: '(min-width: 1200px) 267px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)'
-        }}
+        {%- assign _img_url = product_card_product.featured_media | image_url: width: 800 -%}
+        <img
+          src="{{ _img_url }}"
+          class="product-card__image product-card__image--primary"
+          alt="{{ product_card_product.featured_media.alt | escape }}"
+          loading="lazy"
+          width="800"
+          height="auto"
+        >
 
         <!-- Secondary Image (hover swap) -->
         {%- if show_secondary_image and product_card_product.images[1] != null -%}
-          {{
-            product_card_product.images[1]
-            | image_url: width: 800
-            | image_tag:
-              loading: 'lazy',
-              class: 'product-card__image product-card__image--secondary',
-              widths: '165, 360, 533, 720, 940, 1066',
-              alt: product_card_product.images[1].alt | escape,
-              sizes: '(min-width: 1200px) 267px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)'
-          }}
+          {%- assign _img2_url = product_card_product.images[1] | image_url: width: 800 -%}
+          <img
+            src="{{ _img2_url }}"
+            class="product-card__image product-card__image--secondary"
+            alt="{{ product_card_product.images[1].alt | escape }}"
+            loading="lazy"
+            width="800"
+            height="auto"
+          >
         {%- endif -%}
       {%- else -%}
         <!-- Placeholder image if no product -->
