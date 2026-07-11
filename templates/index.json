@@ -60,8 +60,8 @@
         "enable_quick_add": false,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 35,
+        "padding_bottom": 35
       }
     },
     "featured-collection-2": {
@@ -87,8 +87,8 @@
         "enable_quick_add": false,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 35,
+        "padding_bottom": 35
       }
     },
     "image-with-text": {
