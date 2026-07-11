@@ -9,12 +9,12 @@
    CSS CUSTOM PROPERTIES (Variables)
    ============================================================ */
 :root {
-  /* Colors - exact lafarfallia values */
-  --color-foreground: 18, 18, 18;
-  --color-background: 255, 255, 255;
-  --color-secondary-background: 243, 243, 243;
-  --color-accent: 202, 180, 201;
-  --color-shadow: 18, 18, 18;
+  /* Colors - exact brand manual values */
+  --color-foreground: 69, 67, 68; /* Tundora #454344 */
+  --color-background: 255, 248, 248; /* Rose White #FFF8F8 */
+  --color-secondary-background: 174, 165, 164; /* Martini #AEA5A4 */
+  --color-accent: 231, 147, 169; /* Carissma #E793A9 */
+  --color-shadow: 69, 67, 68;
 
   /* Semantic color tokens */
   --color-text: rgb(var(--color-foreground));
@@ -23,25 +23,25 @@
   --color-accent-solid: rgb(var(--color-accent));
 
   /* Brand specific */
-  --color-announcement-bg: #121212;
-  --color-announcement-text: #ffffff;
-  --color-footer-bg: #121212;
-  --color-footer-text: #ffffff;
+  --color-announcement-bg: #454344; /* Tundora */
+  --color-announcement-text: #fff8f8; /* Rose White */
+  --color-footer-bg: #fff8f8; /* Rose White */
+  --color-footer-text: #454344; /* Tundora */
 
   /* Buttons */
-  --color-button: #121212;
-  --color-button-text: #ffffff;
-  --color-button-border: #121212;
-  --btn-border-width: 3px;
+  --color-button: #454344; /* Tundora */
+  --color-button-text: #fff8f8; /* Rose White */
+  --color-button-border: #454344;
+  --btn-border-width: 1px;
   --btn-border-radius: 0px;
 
   /* Typography */
-  --font-heading-family: 'Montserrat', sans-serif;
-  --font-body-family: 'Archivo Narrow', sans-serif;
-  --font-body-scale: 1.05;
-  --font-base-size: 1.5rem;
-  --font-heading-weight: 400;
-  --font-heading-letter-spacing: 0.08em;
+  --font-heading-family: 'Bodoni Moda', serif;
+  --font-body-family: 'Poppins', sans-serif;
+  --font-body-scale: 1.0;
+  --font-base-size: 1.4rem;
+  --font-heading-weight: 500;
+  --font-heading-letter-spacing: 0.04em;
 
   /* Layout */
   --page-width: 1440px;
@@ -1560,13 +1560,19 @@ input, textarea, select {
   height: 100% !important;
   object-fit: cover !important;
 }
+.collection-list .title-wrapper, .featured-collection .title-wrapper {
+  margin-top: 40px !important;
+  margin-bottom: 24px !important;
+  text-align: left !important;
+}
 
-.collection-list .title-wrapper .title, .featured-collection .title-wrapper .title {
-  font-family: Montserrat, sans-serif !important;
-  font-size: 1.3rem !important;
+.collection-list .title-wrapper .title, .featured-collection .title-wrapper .title, .collection-list-2 .title-wrapper .title {
+  font-family: 'Bodoni Moda', serif !important;
+  font-size: 3.2rem !important;
   font-weight: 400 !important;
-  letter-spacing: 0.18em !important;
-  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: #454344 !important;
 }
 
 .featured-collection .page-width {
@@ -1575,7 +1581,7 @@ input, textarea, select {
 }
 .grid--4-col-desktop {
   grid-template-columns: repeat(4, 1fr) !important;
-  gap: 8px !important;
+  gap: 12px !important;
 }
 
 /* Hover swap de imagen */
@@ -1598,42 +1604,302 @@ input, textarea, select {
 }
 
 .card__heading {
-  font-family: "Archivo Narrow", sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 1.4rem !important;
-  letter-spacing: 0.04em !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.02em !important;
   text-transform: uppercase !important;
+  color: #454344 !important;
+}
+
+.price {
+  font-family: 'Poppins', sans-serif !important;
+  color: #454344 !important;
 }
 .price__regular, .price__sale {
-  font-family: "Archivo Narrow", sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 1.3rem !important;
+  color: #454344 !important;
+}
+.price--on-sale .price-item--regular {
+  color: #aea5a4 !important; /* Martini */
 }
 
 .button, .btn {
-  font-family: "Archivo Narrow", sans-serif !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.1em !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   border-radius: 0 !important;
 }
 
-.footer {
-  background-color: #121212 !important;
+/* ============================================================
+   HEADER STYLING (lafarfallia centered logo & bottom menu)
+   ============================================================ */
+.header {
+  border-bottom: 1px solid #aea5a4 !important;
+  background-color: #fff8f8 !important; /* Rose White */
 }
-.footer__heading {
-  font-family: Montserrat, sans-serif !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.15em !important;
+.header__inner {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 15px 20px 5px 20px !important;
+}
+
+.header__top-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.header__left-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 15px !important;
+  flex: 1 !important;
+}
+.header__left-group .header__icon--menu {
+  display: none !important; /* Hamburger only on mobile */
+}
+@media screen and (max-width: 989px) {
+  .header__left-group .header__icon--menu {
+    display: block !important;
+  }
+}
+
+.header__center-group {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex: 2 !important;
+}
+.header__heading-logo-text {
+  font-family: 'Bodoni Moda', serif !important;
+  font-size: 3.6rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  color: #454344 !important;
+  text-transform: none !important;
+}
+
+.header__right-group {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 15px !important;
+  flex: 1 !important;
+}
+.header__icon svg {
+  width: 20px !important;
+  height: 20px !important;
+  color: #454344 !important;
+}
+.header__icon:hover svg {
+  color: #e793a9 !important; /* Carissma */
+}
+
+/* Fila inferior: Menú principal */
+.header__bottom-row {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 15px !important;
+}
+@media screen and (max-width: 989px) {
+  .header__bottom-row {
+    display: none !important; /* Menú hamburguesa drawer en móvil */
+  }
+}
+
+.header__inline-menu {
+  margin-left: 0 !important;
+}
+.list-menu--inline {
+  gap: 25px !important;
+}
+.header__menu-item {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
-  color: #ffffff !important;
+  color: #454344 !important;
+  padding: 8px 0 !important;
+  text-decoration: none !important;
 }
-.footer a {
-  color: rgba(255,255,255,0.65) !important;
+.header__menu-item:hover {
+  color: #e793a9 !important; /* Carissma */
 }
-.footer a:hover {
-  color: #ffffff !important;
+
+/* ============================================================
+   FOOTER STYLING (Centered horizontal, Rose White background)
+   ============================================================ */
+.footer--custom {
+  background-color: #fff8f8 !important; /* Rose White */
+  border-top: 1px solid #aea5a4 !important;
+  color: #454344 !important;
+  padding: 40px 20px 20px 20px !important;
+}
+
+.footer__centered-menu {
+  display: flex !important;
+  justify-content: center !important;
+  margin-bottom: 30px !important;
+}
+.footer__horizontal-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 20px 30px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.footer__horizontal-link {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  color: #454344 !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+}
+.footer__horizontal-link:hover {
+  color: #e793a9 !important; /* Carissma */
+}
+
+.footer__centered-newsletter {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  margin-bottom: 40px !important;
+}
+.footer__newsletter-heading {
+  font-family: 'Bodoni Moda', serif !important;
+  font-size: 2.2rem !important;
+  font-weight: 400 !important;
+  color: #454344 !important;
+  margin-bottom: 15px !important;
+  text-align: center !important;
+  letter-spacing: 0.02em !important;
+}
+.footer__newsletter-form {
+  width: 100% !important;
+  max-width: 360px !important;
+}
+.footer__newsletter-field {
+  display: flex !important;
+  align-items: center !important;
+  border-bottom: 1.5px solid #454344 !important;
+  padding-bottom: 5px !important;
+}
+.footer__newsletter-input {
+  flex: 1 !important;
+  border: none !important;
+  background: transparent !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.4rem !important;
+  color: #454344 !important;
+  padding: 5px 0 !important;
+  outline: none !important;
+}
+.footer__newsletter-input::placeholder {
+  color: #aea5a4 !important; /* Martini */
+}
+.footer__newsletter-submit {
+  border: none !important;
+  background: transparent !important;
+  cursor: pointer !important;
+  padding: 5px !important;
+  color: #454344 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+.footer__newsletter-submit:hover {
+  color: #e793a9 !important; /* Carissma */
+}
+
+.footer__bottom-custom {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-top: 1px solid rgba(174, 165, 164, 0.3) !important; /* Opacity 0.3 Martini */
+  padding-top: 20px !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+}
+@media screen and (max-width: 749px) {
+  .footer__bottom-custom {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+}
+
+.footer__bottom-left {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem !important;
+  color: #aea5a4 !important; /* Martini */
+}
+.footer__copyright a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.footer__legal-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+.footer__legal-link {
+  color: #454344 !important;
+  text-decoration: none !important;
+}
+.footer__legal-link:hover {
+  color: #e793a9 !important; /* Carissma */
+}
+.footer__divider, .footer__legal-divider {
+  color: #aea5a4 !important; /* Martini */
+}
+
+.footer__bottom-center {
+  display: flex !important;
+  justify-content: center !important;
+}
+.footer__payment .list-inline {
+  display: flex !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer__bottom-right {
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+.footer__social-links {
+  display: flex !important;
+  gap: 15px !important;
+}
+.footer__social-icon {
+  color: #454344 !important;
+  display: flex !important;
+  align-items: center;
+}
+.footer__social-icon:hover {
+  color: #e793a9 !important; /* Carissma */
+}
+.footer__social-icon svg {
+  width: 18px !important;
+  height: 18px !important;
 }
 
 .collection-list .page-width {
   padding: 0 !important;
   max-width: 100% !important;
+}
+body {
+  background-color: #fff8f8 !important; /* Rose White brand background */
 }
