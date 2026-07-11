@@ -12,7 +12,7 @@
           "settings": {}
         },
         "checkout-button": {
-          "type": "checkout-button",
+          "type": "buttons",
           "settings": {}
         }
       },
