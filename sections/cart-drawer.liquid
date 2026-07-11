@@ -28,17 +28,7 @@
           <div class="cart-item" id="CartItem-{{ item.index | plus: 1 }}" data-index="{{ item.index | plus: 1 }}">
             <div class="cart-item__image-wrapper">
               {%- if item.image -%}
-                {{
-                  item.image
-                  | image_url: width: 300
-                  | image_tag:
-                    loading: 'lazy',
-                    class: 'cart-item__image',
-                    alt: item.image.alt | escape,
-                    widths: '75, 150, 300',
-                    width: 75,
-                    height: 75
-                }}
+                <img src="{{ item.image | image_url: width: 300 }}" class="cart-item__image" alt="{{ item.image.alt | escape }}" loading="lazy" width="75" height="75">
               {%- endif -%}
             </div>
             <div class="cart-item__details">

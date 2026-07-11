@@ -22,15 +22,7 @@
         >
           <div class="collection-card__image-wrapper">
             {%- if collection.featured_image != blank -%}
-              {{
-                collection.featured_image
-                | image_url: width: 1100
-                | image_tag:
-                  class: 'collection-card__image',
-                  widths: '165, 360, 535, 750, 1100',
-                  alt: collection.title | escape,
-                  loading: 'lazy'
-              }}
+              <img src="{{ collection.featured_image | image_url: width: 1100 }}" class="collection-card__image" alt="{{ collection.title | escape }}" loading="lazy" width="1100" height="1100">
             {%- else -%}
               {%- liquid
                 assign fallback_image = ''
