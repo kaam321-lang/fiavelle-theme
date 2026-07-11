@@ -1584,23 +1584,39 @@ input, textarea, select {
   gap: 12px !important;
 }
 
-/* Hover swap de imagen */
-.card-wrapper .card__media .media--hover-effect img:nth-child(2) {
+/* Hover swap de imagen personalizado (Modelo -> Conjunto plano) */
+.product-card__media-wrapper {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.product-card__image {
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  opacity: 0 !important;
-  transition: opacity 0.5s ease !important;
+  transition: opacity 0.4s ease, transform 0.4s ease !important;
 }
-.card-wrapper:hover .card__media .media--hover-effect img:nth-child(2) {
+
+.product-card__image--primary {
   opacity: 1 !important;
+  z-index: 1 !important;
 }
-.card-wrapper:hover .card__media .media--hover-effect img:nth-child(1) {
+
+.product-card__image--secondary {
   opacity: 0 !important;
-  transition: opacity 0.5s ease !important;
+  z-index: 2 !important;
+}
+
+/* Al hacer hover sobre la tarjeta */
+.product-card:hover .product-card__image--primary {
+  opacity: 0 !important;
+}
+
+.product-card:hover .product-card__image--secondary {
+  opacity: 1 !important;
 }
 
 .card__heading {
