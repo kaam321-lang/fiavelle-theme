@@ -1605,11 +1605,13 @@ input, textarea, select {
 
 .card__heading {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 1.4rem !important;
-  font-weight: 500 !important;
+  font-size: 1.8rem !important; /* Aumentado de 1.4rem a 1.8rem */
+  font-weight: 600 !important; /* Semi-bold */
   letter-spacing: 0.02em !important;
-  text-transform: uppercase !important;
+  text-transform: none !important;
   color: #454344 !important;
+  margin-top: 10px !important;
+  margin-bottom: 5px !important;
 }
 
 .price {
@@ -1618,11 +1620,27 @@ input, textarea, select {
 }
 .price__regular, .price__sale {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 1.3rem !important;
+  font-size: 1.6rem !important; /* Aumentado de 1.3rem a 1.6rem */
+  font-weight: 400 !important;
   color: #454344 !important;
 }
 .price--on-sale .price-item--regular {
   color: #aea5a4 !important; /* Martini */
+}
+
+/* Redondear esquinas superiores del contenedor de la imagen */
+.card__media, .card__inner, .card__inner .media {
+  border-radius: 12px 12px 0px 0px !important;
+  overflow: hidden !important;
+}
+.card-wrapper {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+/* Ocultar visualmente las etiquetas de Sale */
+.card__badge, .badge {
+  display: none !important;
 }
 
 .button, .btn {
@@ -1720,16 +1738,19 @@ input, textarea, select {
 }
 .header__menu-item {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 1.2rem !important;
+  font-size: 1.47rem !important; /* lafarfallia menu size */
   font-weight: 500 !important;
-  letter-spacing: 0.08em !important;
-  text-transform: uppercase !important;
-  color: #454344 !important;
-  padding: 8px 0 !important;
+  letter-spacing: 0.063rem !important; /* lafarfallia letter-spacing */
+  text-transform: none !important; /* lafarfallia text-transform */
+  color: rgba(69, 67, 68, 0.75) !important; /* lafarfallia default color */
+  padding: 1.26rem !important; /* lafarfallia padding */
   text-decoration: none !important;
+  transition: color 0.2s ease !important;
 }
-.header__menu-item:hover {
-  color: #e793a9 !important; /* Carissma */
+.header__menu-item:hover, .header__active-menu-item {
+  color: #454344 !important; /* solid Tundora */
+  text-decoration: underline !important;
+  text-underline-offset: 0.3rem !important;
 }
 
 /* ============================================================
@@ -1903,3 +1924,80 @@ input, textarea, select {
 body {
   background-color: #fff8f8 !important; /* Rose White brand background */
 }
+
+/* ============================================================
+   RESPONSIVE SLIDER & MINIMAL VIEW ALL BUTTON
+   ============================================================ */
+
+/* Carrusel responsivo CSS nativo para móviles y tablets */
+@media screen and (max-width: 989px) {
+  .product-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    gap: 15px !important;
+    padding-bottom: 20px !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .product-grid::-webkit-scrollbar {
+    height: 6px !important;
+  }
+  .product-grid::-webkit-scrollbar-thumb {
+    background-color: #aea5a4 !important; /* Martini */
+    border-radius: 3px !important;
+  }
+  .product-grid::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  .product-grid > * {
+    flex: 0 0 65% !important; /* Cada tarjeta ocupa 65% en móvil */
+    scroll-snap-align: start !important;
+  }
+}
+
+/* Botón "Ver todos" minimalista de La Farfallia */
+.collection__view-all {
+  margin-top: 30px !important;
+  margin-bottom: 50px !important;
+  text-align: right !important; /* Alinear a la derecha como la referencia */
+  padding-right: 40px !important;
+}
+.collection__view-all-link {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.8rem !important;
+  font-weight: 500 !important;
+  color: #454344 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  transition: color 0.3s ease !important;
+}
+.collection__view-all-link:hover {
+  color: #e793a9 !important; /* Carissma */
+}
+.view-all-arrow-circle {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background-color: #454344 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #fff8f8 !important;
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+.collection__view-all-link:hover .view-all-arrow-circle {
+  background-color: #e793a9 !important; /* Carissma */
+  color: #fff8f8 !important;
+}
+.view-all-arrow-circle svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: currentColor !important;
+}
+
