@@ -1,24 +1,5 @@
 {
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
-      "settings": {
-        "text": "ENVÍO GRATIS EN COMPRAS SOBRE $50.000 • NUEVAS COLECCIONES DISPONIBLES",
-        "color_scheme": "background-1",
-        "enable_autoplay": true,
-        "autoplay_speed": 5
-      }
-    },
-    "header": {
-      "type": "header",
-      "settings": {
-        "logo_width": 150,
-        "menu": "main-menu",
-        "show_line_separator": true,
-        "sticky_header_type": "always",
-        "color_scheme": "background-1"
-      }
-    },
     "collection-list": {
       "type": "collection-list",
       "blocks": {
@@ -98,7 +79,7 @@
         "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
-        "color_scheme": "scheme-2",
+        "color_scheme": "background-2",
         "image_ratio": "portrait",
         "show_secondary_image": true,
         "show_vendor": false,
@@ -130,54 +111,12 @@
         "button_label": "Conoce Nuestra Historia",
         "button_link": "/pages/nosotras"
       }
-    },
-    "footer": {
-      "type": "footer",
-      "blocks": {
-        "link-1": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Colecciones",
-            "menu": "footer-collections"
-          }
-        },
-        "link-2": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Información",
-            "menu": "footer-info"
-          }
-        },
-        "link-3": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Ayuda",
-            "menu": "footer-help"
-          }
-        }
-      },
-      "block_order": ["link-1", "link-2", "link-3"],
-      "settings": {
-        "newsletter_enable": true,
-        "newsletter_heading": "Suscríbete",
-        "color_scheme": "background-1",
-        "padding_top": 72,
-        "padding_bottom": 36
-      }
-    },
-    "main-content": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {}
     }
   },
   "order": [
-    "announcement-bar",
-    "header",
     "collection-list",
     "featured-collection",
     "featured-collection-2",
-    "image-with-text",
-    "footer"
+    "image-with-text"
   ]
 }
