@@ -27,10 +27,21 @@
 
     <!-- Font styles handled by Google Fonts and fiavelle.css -->
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Poppins only) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Brand Typography (Collection Morning) -->
+    <style>
+      @font-face {
+        font-family: 'Collection Morning';
+        src: url('{{ "CollectionMorning.otf" | asset_url }}') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
 
     {{ 'fiavelle.css' | asset_url | stylesheet_tag }}
 
