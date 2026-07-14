@@ -2020,6 +2020,12 @@ body {
 /* ============================================================
    HEADER DROPDOWN SUBMENU OPTIMIZATION (High Contrast & Contrast)
    ============================================================ */
+.list-menu--inline > li,
+.list-menu--inline header-menu,
+.list-menu--inline details {
+  position: relative !important;
+}
+
 .header__submenu {
   background-color: #ffffff !important; /* Fondo blanco 100% sólido */
   border: 1px solid #aea5a4 !important; /* Borde sutil Martini */
