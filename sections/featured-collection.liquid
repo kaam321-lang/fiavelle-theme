@@ -5,6 +5,18 @@
 
 {%- assign collection = collections['home-page'] -%}
 
+<div style="background: #ffcccc; color: #ff0000; padding: 15px; text-align: center; font-size: 14px; z-index: 99999; position: relative;">
+  <strong>DEBUG INFO:</strong><br>
+  - section.settings.collection: "{{ section.settings.collection }}"<br>
+  - collections['home-page'] title: "{{ collections['home-page'].title }}"<br>
+  - collections['home-page'] products count: {{ collections['home-page'].products.size }}<br>
+  - total collections on store: {{ collections.size }}<br>
+  - all collections handles: 
+    {% for coll in collections %}
+      [{{ coll.handle }}: {{ coll.products.size }} productos] | 
+    {% endfor %}
+</div>
+
 <div class="color-{{ section.settings.color_scheme }} gradient isolate{% if section.settings.full_width == true %} full-width-section{% endif %}">
   <div class="collection{% unless section.settings.full_width %} page-width{% endunless %} isolate">
 
