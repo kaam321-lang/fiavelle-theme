@@ -3,11 +3,10 @@
   4-column product grid with hover image swap
 {% endcomment %}
 
-{%- assign collection_handle = section.settings.collection -%}
-{%- if collection_handle == 'frontpage' or collection_handle == blank or collections[collection_handle].products.size == 0 -%}
-  {%- assign collection_handle = 'home-page' -%}
+{%- assign collection = collections[section.settings.collection] -%}
+{%- if collection == nil or collection.products.size == 0 -%}
+  {%- assign collection = collections['home-page'] -%}
 {%- endif -%}
-{%- assign collection = collections[collection_handle] -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient isolate{% if section.settings.full_width == true %} full-width-section{% endif %}">
   <div class="collection{% unless section.settings.full_width %} page-width{% endunless %} isolate">
