@@ -377,10 +377,10 @@ input, textarea, select {
 }
 
 .hamburger-line {
-  display: block;
-  width: 22px;
-  height: 1.5px;
-  background: var(--color-text);
+  display: block !important;
+  width: 22px !important;
+  height: 2px !important;
+  background: #454344 !important;
   transition: all var(--duration-medium) ease;
 }
 
@@ -1705,7 +1705,7 @@ input, textarea, select {
 }
 @media screen and (max-width: 989px) {
   .header__left-group .header__icon--menu {
-    display: block !important;
+    display: flex !important;
   }
 }
 
@@ -2118,4 +2118,21 @@ collection-component .product-grid .grid__item,
 /* Hide duplicate overlay titles inside the image wrapper for standard clean card display */
 .card__inner .card__content {
   display: none !important;
+}
+
+/* Force mobile header to have solid white background and prevent transparent overlay conflicts */
+@media screen and (max-width: 989px) {
+  .header-wrapper,
+  .header,
+  .header__inner {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+  .header * {
+    color: #454344 !important;
+    fill: #454344 !important;
+  }
+  .hamburger-line {
+    background: #454344 !important;
+  }
 }

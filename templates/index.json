@@ -86,46 +86,11 @@
         "padding_bottom": 36
       }
     },
-    "collection-list-2": {
-      "type": "collection-list",
-      "blocks": {
-        "collection-1": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "plus-size",
-            "title": "Plus size"
-          }
-        },
-        "collection-2": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "bralette-y-bustier",
-            "title": "BRALETTE Y BUSTIER"
-          }
-        },
-        "collection-3": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "novias",
-            "title": "Novias"
-          }
-        }
-      },
-      "block_order": [
-        "collection-1",
-        "collection-2",
-        "collection-3"
-      ],
-      "settings": {
-        "title": "Otras colecciones",
-        "color_scheme": "background-1"
-      }
-    }
+
   },
   "order": [
     "collection-list",
     "featured-collection",
-    "featured-collection-2",
-    "collection-list-2"
+    "featured-collection-2"
   ]
 }
