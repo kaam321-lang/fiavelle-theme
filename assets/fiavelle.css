@@ -2085,26 +2085,26 @@ body {
 }
 
 /* Restore Flexbox display and correct card widths for Dawn native templates to prevent grid collapse */
-body.template-collection .product-grid,
-body.template-search .product-grid {
+collection-component .product-grid,
+#ProductGridContainer .product-grid {
   display: flex !important;
   flex-wrap: wrap !important;
   gap: var(--grid-desktop-horizontal-spacing) !important;
 }
 
-body.template-collection .product-grid .grid__item,
-body.template-search .product-grid .grid__item {
+collection-component .product-grid .grid__item,
+#ProductGridContainer .product-grid .grid__item {
   width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4) !important;
   max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4) !important;
 }
 
 @media screen and (max-width: 989px) {
-  body.template-collection .product-grid,
-  body.template-search .product-grid {
+  collection-component .product-grid,
+  #ProductGridContainer .product-grid {
     gap: var(--grid-mobile-horizontal-spacing) !important;
   }
-  body.template-collection .product-grid .grid__item,
-  body.template-search .product-grid .grid__item {
+  collection-component .product-grid .grid__item,
+  #ProductGridContainer .product-grid .grid__item {
     width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2) !important;
     max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2) !important;
   }
