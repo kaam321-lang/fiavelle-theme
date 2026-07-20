@@ -2114,3 +2114,8 @@ collection-component .product-grid .grid__item,
 .card__media {
   width: 100% !important;
 }
+
+/* Hide duplicate overlay titles inside the image wrapper for standard clean card display */
+.card__inner .card__content {
+  display: none !important;
+}
