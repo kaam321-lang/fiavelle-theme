@@ -2273,3 +2273,8 @@ collection-component .product-grid .grid__item,
   display: inline-block !important;
   color: #ffffff !important;
 }
+
+/* Fix: Eliminate the top white space gap when scrolling by overriding JS inline offset on #SiteHeader */
+#SiteHeader {
+  top: 0 !important;
+}
