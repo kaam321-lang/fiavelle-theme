@@ -1524,6 +1524,7 @@ input, textarea, select {
 }
 
 .header {
+  display: block !important; /* Override Dawn CSS Grid on all instances */
   background: #ffffff !important;
   border-bottom: 1px solid rgba(18,18,18,0.08) !important;
 }
@@ -1678,10 +1679,13 @@ input, textarea, select {
    HEADER STYLING (lafarfallia centered logo & bottom menu)
    ============================================================ */
 .header {
-  display: block !important; /* Override Dawn CSS Grid to prevent grid rows from cutting the logo */
+  display: block !important; /* Override Dawn CSS Grid */
   border-bottom: 1px solid #aea5a4 !important;
   background-color: #fff8f8 !important; /* Rose White */
   padding: 0 !important;
+  overflow: visible !important;
+  min-height: unset !important;
+  align-items: unset !important;
 }
 .header__inner {
   display: flex !important;
