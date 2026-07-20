@@ -2136,3 +2136,30 @@ collection-component .product-grid .grid__item,
     background: #454344 !important;
   }
 }
+
+/* Disable sticky positioning on the announcement bar so only the main header stays fixed at top: 0 */
+.section-announcement-bar {
+  position: static !important;
+}
+.section-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+}
+
+/* Add breathing space between header and main content on all pages except the homepage */
+#MainContent {
+  padding-top: 40px !important;
+}
+.template-index #MainContent {
+  padding-top: 0 !important;
+}
+
+@media screen and (max-width: 989px) {
+  #MainContent {
+    padding-top: 24px !important;
+  }
+  .template-index #MainContent {
+    padding-top: 0 !important;
+  }
+}
