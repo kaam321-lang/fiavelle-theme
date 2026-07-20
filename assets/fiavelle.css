@@ -2246,13 +2246,28 @@ collection-component .product-grid .grid__item,
 /* Force Spanish translation on all Collection View All buttons */
 .collection__view-all a {
   font-size: 0 !important; /* Hide original English text "VIEW ALL" */
+  background-color: #454344 !important; /* Solid dark background */
+  color: #ffffff !important; /* White text color */
+  border: 1px solid #454344 !important;
+  padding: 14px 32px !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+.collection__view-all a:hover {
+  background-color: #302f30 !important;
+  border-color: #302f30 !important;
+  transform: translateY(-1px) !important;
 }
 
 .collection__view-all a::after {
   content: "VER TODO" !important;
   font-size: 1.2rem !important;
   font-family: 'Poppins', sans-serif !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   letter-spacing: 0.14em !important;
   text-transform: uppercase !important;
   display: inline-block !important;
