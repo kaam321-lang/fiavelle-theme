@@ -1713,7 +1713,8 @@ input, textarea, select {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  flex: 2 !important;
+  flex: 1 !important;
+  text-align: center !important;
 }
 .header__heading-logo-text {
   font-family: 'Bodoni Moda', serif !important;
@@ -1758,10 +1759,19 @@ input, textarea, select {
 }
 
 .header__inline-menu {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
   margin-left: 0 !important;
 }
 .list-menu--inline {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
   gap: 25px !important;
+  margin: 0 auto !important;
 }
 .header__menu-item {
   font-family: 'Poppins', sans-serif !important;
@@ -2230,4 +2240,20 @@ collection-component .product-grid .grid__item,
 .shopify-payment-button__button {
   border-radius: 4px !important;
   box-shadow: none !important;
+}
+
+/* Force Spanish translation on all Collection View All buttons */
+.collection__view-all a {
+  font-size: 0 !important; /* Hide original English text "VIEW ALL" */
+}
+
+.collection__view-all a::after {
+  content: "VER TODO" !important;
+  font-size: 1.2rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  display: inline-block !important;
+  color: #ffffff !important;
 }
