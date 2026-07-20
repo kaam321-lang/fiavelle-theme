@@ -1685,6 +1685,7 @@ input, textarea, select {
   display: flex !important;
   flex-direction: column !important;
   padding: 15px 20px 5px 20px !important;
+  grid-column: 1 / -1 !important; /* Expand across all Dawn grid columns for full width and centering */
 }
 
 .header__top-row {
