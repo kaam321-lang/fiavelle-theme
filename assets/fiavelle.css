@@ -2076,3 +2076,10 @@ body {
 .list-menu--inline > li > .header__menu-item:hover {
   color: #454344 !important;
 }
+
+/* Restore Flexbox display for Dawn native templates to prevent card width collapse */
+.template-collection .product-grid,
+.template-search .product-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
