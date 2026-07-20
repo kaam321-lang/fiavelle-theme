@@ -1678,8 +1678,10 @@ input, textarea, select {
    HEADER STYLING (lafarfallia centered logo & bottom menu)
    ============================================================ */
 .header {
+  display: block !important; /* Override Dawn CSS Grid to prevent grid rows from cutting the logo */
   border-bottom: 1px solid #aea5a4 !important;
   background-color: #fff8f8 !important; /* Rose White */
+  padding: 0 !important;
 }
 .header__inner {
   display: flex !important;
