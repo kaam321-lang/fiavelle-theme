@@ -2084,14 +2084,33 @@ body {
   color: #454344 !important;
 }
 
-/* Restore Flexbox display for Dawn native templates to prevent card width collapse */
-.template-collection .product-grid,
-.template-search .product-grid {
+/* Restore Flexbox display and correct card widths for Dawn native templates to prevent grid collapse */
+body.template-collection .product-grid,
+body.template-search .product-grid {
   display: flex !important;
   flex-wrap: wrap !important;
+  gap: var(--grid-desktop-horizontal-spacing) !important;
 }
 
-/* Force card media width to 100% to avoid colapsing with undefined padding variables */
+body.template-collection .product-grid .grid__item,
+body.template-search .product-grid .grid__item {
+  width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4) !important;
+  max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4) !important;
+}
+
+@media screen and (max-width: 989px) {
+  body.template-collection .product-grid,
+  body.template-search .product-grid {
+    gap: var(--grid-mobile-horizontal-spacing) !important;
+  }
+  body.template-collection .product-grid .grid__item,
+  body.template-search .product-grid .grid__item {
+    width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2) !important;
+    max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2) !important;
+  }
+}
+
+/* Force card media width to 100% to avoid collapsing with undefined padding variables */
 .card__media {
   width: 100% !important;
 }
