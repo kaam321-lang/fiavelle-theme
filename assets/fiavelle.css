@@ -9,6 +9,13 @@
    CSS CUSTOM PROPERTIES (Variables)
    ============================================================ */
 :root {
+  /* Dawn Grid and Card spacing defaults to prevent layout collapse */
+  --grid-desktop-horizontal-spacing: 20px;
+  --grid-desktop-vertical-spacing: 20px;
+  --grid-mobile-horizontal-spacing: 10px;
+  --grid-mobile-vertical-spacing: 10px;
+  --image-padding: 0px;
+
   /* Colors - exact brand manual values */
   --color-foreground: 69, 67, 68; /* Tundora #454344 */
   --color-background: 255, 248, 248; /* Rose White #FFF8F8 */
@@ -2082,4 +2089,9 @@ body {
 .template-search .product-grid {
   display: flex !important;
   flex-wrap: wrap !important;
+}
+
+/* Force card media width to 100% to avoid colapsing with undefined padding variables */
+.card__media {
+  width: 100% !important;
 }
