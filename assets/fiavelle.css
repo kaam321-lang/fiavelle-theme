@@ -2143,13 +2143,6 @@ collection-component .product-grid .grid__item,
   .header__inner {
     padding: 12px 16px 12px 16px !important;
   }
-  /* Fix: Cap logo height on mobile so it fits inside the header bar */
-  .header__heading-logo {
-    max-height: 44px !important;
-    height: auto !important;
-    width: auto !important;
-    max-width: 160px !important;
-  }
   .header * {
     color: #454344 !important;
     fill: #454344 !important;
