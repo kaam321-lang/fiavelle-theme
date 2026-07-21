@@ -1753,10 +1753,8 @@ input, textarea, select {
   width: 100% !important;
   display: flex !important;
   justify-content: center !important;
-  grid-column: 1 / -1 !important;
   margin-top: 0 !important;
   background: transparent !important;
-  border-top: 1px solid rgba(0,0,0,0.06) !important;
   padding: 8px 0 !important;
 }
 @media screen and (max-width: 989px) {
