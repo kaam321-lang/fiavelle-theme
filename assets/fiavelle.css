@@ -2287,3 +2287,125 @@ collection-component .product-grid .grid__item,
 #SiteHeader {
   top: 0 !important;
 }
+
+/* ============================================================
+   COOKIE BANNER - GLASSMORPHIC PREMIUM STYLE
+   ============================================================ */
+.cookie-banner-container {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 999999 !important;
+  width: 420px !important;
+  max-width: calc(100vw - 48px) !important;
+  background: rgba(255, 248, 248, 0.96) !important; /* Rose White transparent */
+  border: 1px solid rgba(69, 67, 68, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease !important;
+}
+
+.cookie-banner-container.fade-in-up {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.cookie-banner-container.fade-out-down {
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+}
+
+.cookie-banner-container.hidden {
+  display: none !important;
+}
+
+.cookie-banner-content {
+  padding: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.cookie-banner-text h3 {
+  margin: 0 0 6px 0 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 600 !important;
+  color: #454344 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.cookie-banner-text p {
+  margin: 0 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.25rem !important;
+  line-height: 1.5 !important;
+  color: rgba(69, 67, 68, 0.8) !important;
+}
+
+.cookie-banner-actions {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: flex-end !important;
+}
+
+.cookie-btn {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  padding: 10px 20px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.cookie-btn--primary {
+  background-color: #454344 !important;
+  color: #ffffff !important;
+  border: 1px solid #454344 !important;
+}
+
+.cookie-btn--primary:hover {
+  background-color: #302f30 !important;
+  border-color: #302f30 !important;
+}
+
+.cookie-btn--secondary {
+  background-color: transparent !important;
+  color: #454344 !important;
+  border: 1px solid #454344 !important;
+}
+
+.cookie-btn--secondary:hover {
+  background-color: rgba(69, 67, 68, 0.05) !important;
+}
+
+@media screen and (max-width: 767px) {
+  .cookie-banner-container {
+    bottom: 12px !important;
+    right: 12px !important;
+    max-width: calc(100vw - 24px) !important;
+    width: calc(100vw - 24px) !important;
+  }
+  .cookie-banner-content {
+    padding: 18px !important;
+    gap: 12px !important;
+  }
+}
+
+/* ============================================================
+   EXTRA PRODUCT CARD HOVER REFINEMENT
+   ============================================================ */
+.card-wrapper:hover .card__heading a {
+  color: #e793a9 !important; /* Carissma pink highlight */
+  transition: color 0.3s ease !important;
+}
+.card__heading a {
+  transition: color 0.3s ease !important;
+}

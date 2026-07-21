@@ -1,0 +1,63 @@
+{% comment %}
+  Aviso de Cookies Premium - Fiavelle Theme
+  Elegante diseño minimalista con cristal esmerilado (glassmorphic) adaptado al estilo Rose White de la marca.
+{% endcomment %}
+
+<div id="BrandCookieBanner" class="cookie-banner-container hidden">
+  <div class="cookie-banner-content">
+    <div class="cookie-banner-text">
+      <h3>Tu Privacidad</h3>
+      <p>Utilizamos cookies para optimizar tu experiencia y analizar el tráfico de nuestro sitio. Al continuar navegando, aceptas nuestra política de privacidad.</p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button id="CookieDeclineBtn" class="cookie-btn cookie-btn--secondary">Rechazar</button>
+      <button id="CookieAcceptBtn" class="cookie-btn cookie-btn--primary">Aceptar todo</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var banner = document.getElementById("BrandCookieBanner");
+    var acceptBtn = document.getElementById("CookieAcceptBtn");
+    var declineBtn = document.getElementById("CookieDeclineBtn");
+
+    if (!banner || !acceptBtn || !declineBtn) return;
+
+    // Check if consent has already been given or declined
+    var cookieConsent = localStorage.getItem("fiavelle_cookie_consent");
+
+    if (!cookieConsent) {
+      // Show the banner with a slight delay for a premium feel
+      setTimeout(function() {
+        banner.classList.remove("hidden");
+        banner.classList.add("fade-in-up");
+      }, 1500);
+    }
+
+    acceptBtn.addEventListener("click", function() {
+      localStorage.setItem("fiavelle_cookie_consent", "accepted");
+      // Notify Shopify Privacy API if available
+      if (window.Shopify && window.Shopify.customerPrivacy && window.Shopify.customerPrivacy.setTrackingConsent) {
+        window.Shopify.customerPrivacy.setTrackingConsent(true, function() {});
+      }
+      dismissBanner();
+    });
+
+    declineBtn.addEventListener("click", function() {
+      localStorage.setItem("fiavelle_cookie_consent", "declined");
+      if (window.Shopify && window.Shopify.customerPrivacy && window.Shopify.customerPrivacy.setTrackingConsent) {
+        window.Shopify.customerPrivacy.setTrackingConsent(false, function() {});
+      }
+      dismissBanner();
+    });
+
+    function dismissBanner() {
+      banner.classList.remove("fade-in-up");
+      banner.classList.add("fade-out-down");
+      setTimeout(function() {
+        banner.classList.add("hidden");
+      }, 400);
+    }
+  });
+</script>
