@@ -494,17 +494,32 @@
                 {%- when 'buy_buttons' -%}
                   <!-- Custom Top & Bottom Size Combination Selector (Conditional for 2-piece Sets) -->
                   {% assign show_split_sizes = false %}
+                  
+                  {% comment %} 1. Check explicit product tags {% endcomment %}
                   {% for tag in product.tags %}
-                    {% assign tag_lower = tag | downcase %}
-                    {% if tag_lower == 'dos-tallas' or tag_lower == 'dos_tallas' or tag_lower == 'conjunto-2-piezas' or tag_lower == 'mezclar-tallas' or tag_lower == 'top-bottom' %}
+                    {% assign tag_lower = tag | downcase | strip %}
+                    {% if tag_lower == 'dos-tallas' or tag_lower == 'dos_tallas' or tag_lower == 'conjunto-2-piezas' or tag_lower == 'mezclar-tallas' %}
                       {% assign show_split_sizes = true %}
                     {% endif %}
                   {% endfor %}
 
+                  {% comment %} 2. Auto-enable for 2-piece Conjuntos {% endcomment %}
                   {% assign product_title_lower = product.title | downcase %}
                   {% if product_title_lower contains 'conjunto' or product_title_lower contains 'set 2' or product_title_lower contains 'dos piezas' %}
-                    {% unless product_title_lower contains 'babydoll' or product_title_lower contains 'bata' or product_title_lower contains 'bodysuit' or product_title_lower contains 'medias' %}
-                      {% assign show_split_sizes = true %}
+                    {% assign show_split_sizes = true %}
+                  {% endif %}
+
+                  {% comment %} 3. Explicitly disable for 1-piece Babydolls, Batas, Bodysuits, Medias unless explicitly tagged 'dos-tallas' {% endcomment %}
+                  {% if product_title_lower contains 'babydoll' or product_title_lower contains 'bata' or product_title_lower contains 'bodysuit' or product_title_lower contains 'medias' %}
+                    {% assign has_override_tag = false %}
+                    {% for tag in product.tags %}
+                      {% assign tag_clean = tag | downcase | strip %}
+                      {% if tag_clean == 'dos-tallas' or tag_clean == 'dos_tallas' %}
+                        {% assign has_override_tag = true %}
+                      {% endif %}
+                    {% endfor %}
+                    {% unless has_override_tag %}
+                      {% assign show_split_sizes = false %}
                     {% endunless %}
                   {% endif %}
 
