@@ -4,41 +4,11 @@
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {
-        "about_text": {
-          "type": "text",
-          "settings": {
-            "heading": "Fiavelle",
-            "subtext": "<p>Lencería fina y batas de satín diseñadas para evocar elegancia, calma y sensualidad.<\/p>"
-          }
-        },
-        "menu_help": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Ayuda",
-            "menu": "footer"
-          }
-        },
-        "menu_collections": {
-          "type": "link_list",
-          "settings": {
-            "heading": "Colecciones",
-            "menu": "main-menu"
-          }
-        }
-      },
-      "block_order": [
-        "about_text",
-        "menu_help",
-        "menu_collections"
-      ],
       "settings": {
+        "menu": "footer",
         "color_scheme": "background-2",
         "newsletter_enable": true,
         "newsletter_heading": "¡Suscríbete a nuestra página!",
-        "enable_follow_on_shop": false,
-        "show_social": false,
-        "payment_enable": true,
         "padding_top": 40,
         "padding_bottom": 40
       }
