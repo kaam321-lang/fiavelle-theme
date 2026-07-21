@@ -2143,9 +2143,10 @@ collection-component .product-grid .grid__item,
     background-color: #ffffff !important;
     background: #ffffff !important;
   }
-  /* Fix: Increase header inner padding on mobile so logo is not cut by border-bottom */
+  /* Fix: Increase header inner padding on mobile so logo is not cut by border-bottom, and override base fixed height */
   .header__inner {
-    padding: 12px 16px 12px 16px !important;
+    padding: 16px 16px 16px 16px !important;
+    height: auto !important;
   }
   .header * {
     color: #454344 !important;
