@@ -2409,3 +2409,21 @@ collection-component .product-grid .grid__item,
 .card__heading a {
   transition: color 0.3s ease !important;
 }
+
+/* ============================================================
+   BRAND TYPOGRAPHY HOMOLOGATION FOR SECTION HEADINGS
+   ============================================================ */
+.section-heading,
+.collection-list-title,
+.title,
+.title-wrapper-with-link .title,
+.featured-collection__title,
+.rich-text__heading,
+.image-with-text__heading,
+.collection__title {
+  font-family: 'Collection Morning', serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+

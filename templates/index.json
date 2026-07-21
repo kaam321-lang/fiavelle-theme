@@ -70,7 +70,7 @@
       "settings": {
         "title": "Accesorios",
         "heading_size": "h2",
-        "collection": "home-page",
+        "collection": "medias-y-accesorios",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
@@ -86,11 +86,14 @@
         "padding_bottom": 36
       }
     },
-
+    "value-props": {
+      "type": "value-props"
+    }
   },
   "order": [
     "collection-list",
     "featured-collection",
-    "featured-collection-2"
+    "featured-collection-2",
+    "value-props"
   ]
 }
