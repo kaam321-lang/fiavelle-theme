@@ -38,6 +38,14 @@
           "type": "description",
           "settings": {}
         },
+        "shipping_tab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "🚚 Envíos y Entregas (Santiago y Regiones)",
+            "icon": "truck",
+            "content": "<p><strong>• Región Metropolitana (Santiago):</strong> Despacho express en 24 a 48 horas hábiles por courier privado.</p><p><strong>• Regiones de Chile:</strong> Envíos rápidos en 2 a 5 días hábiles vía Starken o Chilexpress.</p><p><strong>• Regiones Extremas:</strong> Entregas en 5 a 8 días hábiles.</p><p><strong>• Envío Gratis:</strong> Por compras superiores a $60.000 (excepto regiones extremas).</p><p>Todos nuestros pedidos cuentan con número de seguimiento online para tu tranquilidad.</p>"
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -53,6 +61,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "shipping_tab",
         "share"
       ],
       "settings": {
