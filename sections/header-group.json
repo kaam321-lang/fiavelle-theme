@@ -5,7 +5,7 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "settings": {
-        "text": "🚚 ENVÍOS A REGIONES VÍA STARKEN/CHILEXPRESS · ENVÍOS GRATIS SOBRE $60.000",
+        "text": "🚚 ENVÍO GRATIS SOBRE $60.000 (EXCEPTO REGIONES EXTREMAS: I, II, X, XI, XII, XV)",
         "color_scheme": "background-1"
       }
     },
