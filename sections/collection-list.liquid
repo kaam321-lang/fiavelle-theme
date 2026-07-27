@@ -14,11 +14,23 @@
     {%- for block in section.blocks -%}
       {%- assign collection = collections[block.settings.collection] -%}
       {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
+      {%- assign card_url = collection.url -%}
+      {%- if card_url == blank or card_url == '#' -%}
+        {%- if forloop.index == 1 -%}
+          {%- assign card_url = '/collections/conjuntos' -%}
+        {%- elsif forloop.index == 2 -%}
+          {%- assign card_url = '/collections/bodysuit' -%}
+        {%- elsif forloop.index == 3 -%}
+          {%- assign card_url = '/collections/babydoll' -%}
+        {%- else -%}
+          {%- assign card_url = '/collections/all' -%}
+        {%- endif -%}
+      {%- endif -%}
 
       <div class="collection-collage__card collection-collage__card--{{ forloop.index }}" {{ block.shopify_attributes }}>
         <a
           class="collection-card"
-          href="{{ collection.url | default: '#' }}"
+          href="{{ card_url }}"
         >
           <div class="collection-card__image-wrapper">
             {%- if collection.featured_image != blank -%}
