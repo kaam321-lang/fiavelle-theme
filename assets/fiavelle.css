@@ -2447,3 +2447,32 @@ collection-component .product-grid .grid__item,
   display: inline-block !important;
 }
 
+/* ============================================================
+   MOBILE COLLECTION COLLAGE UN-CROPPING & HEAD VISIBILITY FIX
+   ============================================================ */
+.collection-card__image {
+  object-position: center 10% !important;
+}
+
+@media screen and (max-width: 749px) {
+  .collection-collage__grid {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 16px !important;
+  }
+
+  .collection-collage__card {
+    height: 480px !important;
+    border-radius: 8px !important;
+  }
+
+  .collection-card__image {
+    object-fit: cover !important;
+    object-position: center 10% !important;
+  }
+
+  .collection-card__label {
+    padding: 24px 20px !important;
+  }
+}
+
