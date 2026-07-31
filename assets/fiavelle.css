@@ -2489,73 +2489,99 @@ collection-component .product-grid .grid__item,
    ============================================================ */
 
 /* Cart Icon Button in Header */
+a.header__icon--cart,
 .header__icon--cart {
-  display: inline-flex !important;
+  display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 6px !important;
+  gap: 8px !important;
   width: auto !important;
   min-width: unset !important;
-  height: 38px !important;
+  height: 42px !important;
+  min-height: 42px !important;
+  max-height: 42px !important;
   padding: 0 14px 0 12px !important;
-  background: #454344 !important;
+  background-color: #454344 !important;
   color: #ffffff !important;
-  border-radius: 20px !important;
+  border-radius: 21px !important;
   text-decoration: none !important;
   transition: all 0.25s ease !important;
   margin-right: 0 !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  top: auto !important;
+  line-height: 1 !important;
+  overflow: hidden !important;
 }
 
+a.header__icon--cart:hover,
 .header__icon--cart:hover {
-  background: #000000 !important;
+  background-color: #000000 !important;
   color: #ffffff !important;
   transform: scale(1.03);
 }
 
+a.header__icon--cart .icon-cart,
+a.header__icon--cart .icon,
 .header__icon--cart .icon-cart,
 .header__icon--cart .icon {
   width: 18px !important;
   height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
   fill: currentColor !important;
   color: #ffffff !important;
+  stroke: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  display: block !important;
   flex-shrink: 0 !important;
-  display: inline-block !important;
+  align-self: center !important;
 }
 
+a.header__icon--cart .cart-label-text,
 .header__icon--cart .cart-label-text {
   font-family: 'Poppins', sans-serif !important;
-  font-size: 1.15rem !important;
+  font-size: 1.2rem !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
   color: #ffffff !important;
   line-height: 1 !important;
   margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
   display: inline-block !important;
+  align-self: center !important;
+  vertical-align: middle !important;
 }
 
+a.header__icon--cart .cart-count-bubble,
 .header__icon--cart .cart-count-bubble {
-  position: relative !important;
+  position: static !important;
   top: auto !important;
   right: auto !important;
   left: auto !important;
   bottom: auto !important;
-  background: #e793a9 !important;
+  transform: none !important;
+  background-color: #e793a9 !important;
   color: #ffffff !important;
   font-family: 'Poppins', sans-serif !important;
-  font-size: 1rem !important;
+  font-size: 1.1rem !important;
   font-weight: 700 !important;
-  min-width: 20px !important;
-  height: 20px !important;
-  padding: 0 5px !important;
-  border-radius: 10px !important;
-  display: inline-flex !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  padding: 0 6px !important;
+  border-radius: 11px !important;
+  display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  margin-left: 2px !important;
+  margin: 0 0 0 2px !important;
   flex-shrink: 0 !important;
   line-height: 1 !important;
+  align-self: center !important;
 }
 
 /* Prominent Add to Cart Button */
