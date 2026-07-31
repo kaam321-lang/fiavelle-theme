@@ -1,9 +1,31 @@
+if (typeof debounce !== 'function') {
+  window.debounce = function(fn, wait) {
+    let t;
+    return function(...args) {
+      clearTimeout(t);
+      t = setTimeout(() => fn.apply(this, args), wait);
+    };
+  };
+}
+
+if (typeof onKeyUpEscape !== 'function') {
+  window.onKeyUpEscape = function(event) {
+    if (event.code.toUpperCase() !== 'ESCAPE') return;
+    const openDetailsElement = event.target.closest('details[open]');
+    if (!openDetailsElement) return;
+    const summaryElement = openDetailsElement.querySelector('summary');
+    openDetailsElement.removeAttribute('open');
+    summaryElement.setAttribute('aria-expanded', false);
+    summaryElement.focus();
+  };
+}
+
 class FacetFiltersForm extends HTMLElement {
   constructor() {
     super();
     this.onActiveFilterClick = this.onActiveFilterClick.bind(this);
 
-    this.debouncedOnSubmit = debounce((event) => {
+    this.debouncedOnSubmit = window.debounce((event) => {
       this.onSubmitHandler(event);
     }, 800);
 
