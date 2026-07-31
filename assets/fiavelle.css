@@ -2576,6 +2576,35 @@ collection-component .product-grid .grid__item,
 }
 
 .cart-drawer .button--primary,
+.cart__checkout-button:hover {
+  background-color: #333233 !important;
+  transform: translateY(-1px);
+}
+
+/* Interactividad y destacados de Galería de Producto / Miniaturas */
+.thumbnail-list__item button,
+.thumbnail {
+  cursor: pointer !important;
+  border: 2px solid transparent !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.thumbnail-list__item button[aria-current="true"],
+.thumbnail-list__item button:hover,
+.thumbnail[aria-current="true"] {
+  border-color: #e793a9 !important;
+  box-shadow: 0 2px 8px rgba(231, 147, 169, 0.4) !important;
+  transform: scale(1.04);
+}
+
+.product__modal-opener,
+.product__media-toggle,
+.product__media-item img {
+  cursor: pointer !important;
+}
+
+.cart-drawer .button--primary,
 .cart__checkout-button {
   background-color: #454344 !important;
   color: #ffffff !important;
