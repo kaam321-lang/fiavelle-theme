@@ -2674,4 +2674,58 @@ collection-component .product-grid .grid__item,
   min-height: 50px !important;
 }
 
+/* Mobile Header & Cart/Bolsa Icon Responsiveness */
+@media screen and (max-width: 749px) {
+  .header__top-row {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    gap: 6px !important;
+  }
+
+  .header__left-group {
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .header__right-group {
+    gap: 4px !important;
+    flex-shrink: 0 !important;
+    justify-content: flex-end !important;
+  }
+
+  .header__icon--cart {
+    min-width: unset !important;
+    width: auto !important;
+    height: 36px !important;
+    padding: 0 10px !important;
+    gap: 5px !important;
+    background: #454344 !important;
+    border-radius: 18px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .header__icon--cart .cart-label-text {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    color: #ffffff !important;
+    display: inline-block !important;
+  }
+
+  .header__icon--cart .cart-count-bubble {
+    font-size: 1rem !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    padding: 0 4px !important;
+    border-radius: 9px !important;
+    background: #e793a9 !important;
+    color: #ffffff !important;
+  }
+
+  .header__heading-logo {
+    max-width: 100px !important;
+  }
+}
+
 
