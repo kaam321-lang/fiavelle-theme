@@ -2604,6 +2604,63 @@ collection-component .product-grid .grid__item,
   cursor: pointer !important;
 }
 
+/* UI/UX Refinements for Facets & Price Filter */
+.facets__display {
+  border: 1px solid rgba(69, 67, 68, 0.15) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+  padding: 16px !important;
+  background-color: #ffffff !important;
+}
+
+.facets__header {
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  margin-bottom: 12px !important;
+}
+
+.facets__selected {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  color: #666666 !important;
+}
+
+.price-facet-fields {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.price-field-group {
+  border: 1px solid #dcdcdc !important;
+  border-radius: 6px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.price-field-group:focus-within {
+  border-color: #e793a9 !important;
+  box-shadow: 0 0 0 3px rgba(231, 147, 169, 0.2) !important;
+}
+
+.price-field-group .field__input {
+  color: #454344 !important;
+  font-weight: 600 !important;
+  font-size: 1.3rem !important;
+}
+
+.price-field-group .field__label {
+  color: #888888 !important;
+  font-size: 0.95rem !important;
+}
+
+.facets__summary {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+  color: #454344 !important;
+}
+
 .cart-drawer .button--primary,
 .cart__checkout-button {
   background-color: #454344 !important;

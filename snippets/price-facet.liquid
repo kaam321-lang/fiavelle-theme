@@ -1,43 +1,49 @@
-<span class="field-currency">{{ cart.currency.symbol }}</span>
+<div class="price-facet-fields" style="display: flex; align-items: center; gap: 10px; margin-top: 10px; width: 100%;">
+  <div class="price-field-group" style="position: relative; flex: 1; display: flex; align-items: center; background: #ffffff; border: 1px solid #dcdcdc; border-radius: 6px; padding: 8px 10px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);">
+    <span class="field-currency-symbol" style="font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 600; color: #454344; margin-right: 6px; line-height: 1;">$</span>
+    <div class="field" style="flex: 1; margin: 0; display: flex; flex-direction: column;">
+      <input
+        class="field__input"
+        name="{{ filter.min_value.param_name }}"
+        id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
+        {%- if filter.min_value.value -%}
+          value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '' }}"
+        {%- endif -%}
+        type="number"
+        inputmode="numeric"
+        placeholder="0"
+        min="0"
+        max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '' }}"
+        style="width: 100%; border: none !important; background: transparent !important; padding: 0 !important; font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 600; color: #454344 !important; outline: none !important; height: auto !important; min-height: unset !important;"
+      >
+      <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE" style="font-family: 'Poppins', sans-serif; font-size: 0.95rem; color: #888; margin: 0; line-height: 1; text-transform: uppercase; letter-spacing: 0.03em;">
+        {{- 'products.facets.from' | t -}}
+      </label>
+    </div>
+  </div>
 
-<div class="field">
-  <input
-    class="field__input"
-    name="{{ filter.min_value.param_name }}"
-    id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
-    {%- if filter.min_value.value -%}
-      value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '' }}"
-    {%- endif -%}
-    type="number"
-    inputmode="numeric"
-    placeholder="0"
-    min="0"
-    max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '' }}"
-  >
-  <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
-    {{- 'products.facets.from' | t -}}
-  </label>
-</div>
+  <span style="color: #999; font-weight: 600; font-size: 1.4rem;">-</span>
 
-{%- if filter_type != 'vertical' -%}
-  <span class="field-currency">{{ cart.currency.symbol }}</span>
-{%- endif -%}
-
-<div class="field">
-  <input
-    class="field__input"
-    name="{{ filter.max_value.param_name }}"
-    id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
-    {%- if filter.max_value.value -%}
-      value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '' }}"
-    {%- endif -%}
-    type="number"
-    inputmode="numeric"
-    placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '' }}"
-    min="0"
-    max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '' }}"
-  >
-  <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
-    {{- 'products.facets.to' | t -}}
-  </label>
+  <div class="price-field-group" style="position: relative; flex: 1; display: flex; align-items: center; background: #ffffff; border: 1px solid #dcdcdc; border-radius: 6px; padding: 8px 10px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);">
+    <span class="field-currency-symbol" style="font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 600; color: #454344; margin-right: 6px; line-height: 1;">$</span>
+    <div class="field" style="flex: 1; margin: 0; display: flex; flex-direction: column;">
+      <input
+        class="field__input"
+        name="{{ filter.max_value.param_name }}"
+        id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
+        {%- if filter.max_value.value -%}
+          value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '' }}"
+        {%- endif -%}
+        type="number"
+        inputmode="numeric"
+        placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '' }}"
+        min="0"
+        max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '' }}"
+        style="width: 100%; border: none !important; background: transparent !important; padding: 0 !important; font-family: 'Poppins', sans-serif; font-size: 1.3rem; font-weight: 600; color: #454344 !important; outline: none !important; height: auto !important; min-height: unset !important;"
+      >
+      <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE" style="font-family: 'Poppins', sans-serif; font-size: 0.95rem; color: #888; margin: 0; line-height: 1; text-transform: uppercase; letter-spacing: 0.03em;">
+        {{- 'products.facets.to' | t -}}
+      </label>
+    </div>
+  </div>
 </div>
