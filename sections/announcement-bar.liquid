@@ -3,17 +3,9 @@
 {% endcomment %}
 
 <div class="announcement-bar color-{{ section.settings.color_scheme }} gradient" id="AnnouncementBar" role="region" aria-label="{{ 'sections.header.announcement' | t }}">
-  <div class="announcement-bar__content page-width">
-    <p class="announcement-bar__message h5">
-      {%- if section.settings.text != blank -%}
-        {%- if section.settings.link != blank -%}
-          <a href="{{ section.settings.link }}" class="announcement-bar__link link link--text">
-            {{ section.settings.text | escape }}
-          </a>
-        {%- else -%}
-          {{ section.settings.text | escape }}
-        {%- endif -%}
-      {%- endif -%}
+  <div class="announcement-bar__content page-width" style="display: flex; align-items: center; justify-content: center; text-align: center;">
+    <p class="announcement-bar__message h5" style="margin: 0; font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 500; letter-spacing: 0.04em;">
+      ✨ <strong style="text-transform: uppercase; color: #e793a9;">¡Crea tu propio conjunto!</strong> Mezcla la talla de top y calzón/colaless a tu medida &nbsp;|&nbsp; 🚚 ENVÍO GRATIS SOBRE $60.000
     </p>
   </div>
 </div>
