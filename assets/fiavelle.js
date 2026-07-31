@@ -53,23 +53,32 @@
     open() {
       if (!this.drawer) return;
       this.drawer.setAttribute('aria-hidden', 'false');
+      this.drawer.classList.add('is-active', 'active');
       document.body.style.overflow = 'hidden';
       this.closeBtn && this.closeBtn.focus();
 
-      // Show the overlay behind the drawer
-      const globalOverlay = document.getElementById('CartOverlay');
-      if (globalOverlay) globalOverlay.classList.add('is-active');
+      const globalOverlay = document.getElementById('CartOverlay') || document.getElementById('CartDrawerOverlay');
+      if (globalOverlay) {
+        globalOverlay.classList.add('is-active', 'active');
+        globalOverlay.style.opacity = '1';
+        globalOverlay.style.pointerEvents = 'all';
+      }
     },
 
     close() {
       if (!this.drawer) return;
       this.drawer.setAttribute('aria-hidden', 'true');
+      this.drawer.classList.remove('is-active', 'active');
       document.body.style.overflow = '';
       this.cartIcon && this.cartIcon.focus();
 
-      const globalOverlay = document.getElementById('CartOverlay');
-      if (globalOverlay) globalOverlay.classList.remove('is-active');
-    }
+      const globalOverlay = document.getElementById('CartOverlay') || document.getElementById('CartDrawerOverlay');
+      if (globalOverlay) {
+        globalOverlay.classList.remove('is-active', 'active');
+        globalOverlay.style.opacity = '0';
+        globalOverlay.style.pointerEvents = 'none';
+      }
+    },
   };
 
   /* ============================================================
