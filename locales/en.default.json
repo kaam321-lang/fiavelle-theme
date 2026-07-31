@@ -40,9 +40,9 @@
       "reset": "Borrar término de búsqueda"
     },
     "cart": {
-      "view": "Ver carrito ({{ count }})",
-      "item_added": "Artículo agregado a tu carrito",
-      "view_empty_cart": "Ver carrito"
+      "view": "Ver Bolsa ({{ count }})",
+      "item_added": "Artículo agregado a tu Bolsa",
+      "view_empty_cart": "Ver Bolsa"
     },
     "share": {
       "copy_to_clipboard": "Copiar enlace",
@@ -107,7 +107,7 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Agregar al carrito",
+      "add_to_cart": "Agregar a la Bolsa",
       "description": "Descripción",
       "on_sale": "Oferta",
       "quantity": {
@@ -118,11 +118,11 @@
         "minimum_of": "Mínimo de {{ quantity }}",
         "maximum_of": "Máximo de {{ quantity }}",
         "multiples_of": "Incrementos de {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> en el carrito",
-        "note": "Ver reglas de cantidad",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}</span> en la Bolsa",
+        "note": "Nota sobre reglas de cantidad",
         "min_of": "Mín.: {{ quantity }}",
         "max_of": "Máx.: {{ quantity }}",
-        "in_cart_aria_label": "Cantidad ({{ quantity }} en el carrito)"
+        "in_cart_aria_label": "Cantidad ({{ quantity }} en la Bolsa)"
       },
       "price": {
         "from_price_html": "A partir de {{ price }}",
@@ -256,7 +256,7 @@
       }
     },
     "cart": {
-      "cart": "Carrito"
+      "cart": "Bolsa"
     },
     "contact": {
       "form": {
@@ -286,16 +286,16 @@
       }
     },
     "cart": {
-      "title": "Tu carrito",
-      "caption": "Artículos en el carrito",
+      "title": "Tu Bolsa",
+      "caption": "Artículos en la Bolsa",
       "remove_title": "Eliminar {{ title }}",
       "note": "Instrucciones especiales del pedido",
-      "checkout": "Pagar pedido",
-      "empty": "Tu carrito esta vacío",
+      "checkout": "Finalizar compra",
+      "empty": "Tu Bolsa está vacía",
       "product_disclosure": "Aviso sobre el producto",
       "product_disclosures": "Avisos sobre el producto",
-      "cart_error": "Hubo un error al actualizar tu carrito de compra. Inténtalo de nuevo.",
-      "cart_quantity_error_html": "Solo puedes agregar {{ quantity }} de este artículo a tu carrito.",
+      "cart_error": "Hubo un error al actualizar tu Bolsa de compra. Inténtalo de nuevo.",
+      "cart_quantity_error_html": "Solo puedes agregar {{ quantity }} de este artículo a tu Bolsa.",
       "headings": {
         "product": "Producto",
         "price": "Precio",
@@ -380,10 +380,10 @@
       },
       "product_variants": "Variantes de producto",
       "total_items": "Total de artículos",
-      "remove_all_items_confirmation": "¿Eliminar los {{ quantity }} artículos del carrito?",
+      "remove_all_items_confirmation": "¿Eliminar los {{ quantity }} artículos de la Bolsa?",
       "remove_all": "Eliminar todos",
       "cancel": "Cancelar",
-      "remove_all_single_item_confirmation": "¿Eliminar 1 artículo de tu carrito?",
+      "remove_all_single_item_confirmation": "¿Eliminar 1 artículo de tu Bolsa?",
       "min_error": "Este artículo tiene un mínimo de {{ min }}.",
       "max_error": "Este artículo tiene un máximo de {{ max }}.",
       "step_error": "Solo puedes agregar este artículo en incrementos de {{ step }}"
