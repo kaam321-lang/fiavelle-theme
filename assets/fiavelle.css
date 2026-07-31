@@ -2476,3 +2476,116 @@ collection-component .product-grid .grid__item,
   }
 }
 
+/* ============================================================
+   CART & ADD TO CART ENHANCEMENTS (PROMINENT ICON & BUTTON)
+   ============================================================ */
+
+/* Cart Icon Button in Header */
+.header__icon--cart {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: auto !important;
+  min-width: 90px !important;
+  height: 40px !important;
+  padding: 0 14px !important;
+  background: #454344 !important;
+  color: #ffffff !important;
+  border-radius: 20px !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease !important;
+  margin-right: 0 !important;
+}
+
+.header__icon--cart:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  transform: scale(1.03);
+}
+
+.header__icon--cart .icon-cart {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor !important;
+  flex-shrink: 0 !important;
+}
+
+.header__icon--cart .cart-label-text {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: #ffffff !important;
+}
+
+.header__icon--cart .cart-count-bubble {
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  background: #e793a9 !important;
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  border-radius: 10px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: 2px !important;
+}
+
+/* Prominent Add to Cart Button */
+.product-form__submit {
+  background-color: #454344 !important;
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 16px 24px !important;
+  border-radius: 6px !important;
+  border: 1px solid #454344 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  min-height: 52px !important;
+}
+
+.product-form__submit:hover {
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Drawer cart header & checkout button enhancement */
+.drawer__header {
+  background: #fcf9f7 !important;
+  border-bottom: 1px solid #eee !important;
+  padding: 1.5rem 2rem !important;
+}
+
+.drawer__heading {
+  font-family: 'Collection Morning', serif !important;
+  font-size: 2.2rem !important;
+  color: #454344 !important;
+}
+
+.cart-drawer .button--primary,
+.cart__checkout-button {
+  background-color: #454344 !important;
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border-radius: 6px !important;
+  padding: 16px !important;
+  min-height: 50px !important;
+}
+
+

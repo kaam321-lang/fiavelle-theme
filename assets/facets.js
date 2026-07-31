@@ -8,7 +8,10 @@ class FacetFiltersForm extends HTMLElement {
     }, 800);
 
     const facetForm = this.querySelector('form');
-    facetForm.addEventListener('input', this.debouncedOnSubmit.bind(this));
+    if (facetForm) {
+      facetForm.addEventListener('input', this.debouncedOnSubmit.bind(this));
+      facetForm.addEventListener('change', this.debouncedOnSubmit.bind(this));
+    }
 
     const facetWrapper = this.querySelector('#FacetsWrapperDesktop');
     if (facetWrapper) facetWrapper.addEventListener('keyup', onKeyUpEscape);
@@ -409,12 +412,15 @@ class PriceRange extends HTMLElement {
   }
 
   adjustToValidValues(input) {
-    const value = Number(input.value);
-    const min = Number(input.getAttribute('data-min'));
-    const max = Number(input.getAttribute('data-max'));
+    const cleanVal = input.value.replace(/[^0-9]/g, '');
+    const value = cleanVal === '' ? null : Number(cleanVal);
+    const minStr = input.getAttribute('data-min') || '0';
+    const maxStr = input.getAttribute('data-max') || '9999999';
+    const min = Number(minStr.replace(/[^0-9]/g, ''));
+    const max = Number(maxStr.replace(/[^0-9]/g, ''));
 
-    if (value < min) input.value = min;
-    if (value > max) input.value = max;
+    if (value !== null && value < min) input.value = min;
+    if (value !== null && value > max) input.value = max;
   }
 }
 
