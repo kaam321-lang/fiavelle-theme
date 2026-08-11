@@ -291,6 +291,16 @@
       document.body.classList.remove('overflow-hidden');
       return;
     }
+
+    // 4. SIZE GUIDE MODALS CLOSE BUTTON (&times;) & BACKDROP
+    const sizeModal = document.getElementById('SizeGuideModal') || document.getElementById('SizeGuideModalGlobal');
+    if (sizeModal && (event.target.closest('#SizeGuideModal button, #SizeGuideModalGlobal button') || event.target === sizeModal)) {
+      event.preventDefault();
+      event.stopPropagation();
+      sizeModal.style.display = 'none';
+      document.body.classList.remove('overflow-hidden');
+      return;
+    }
   }, true);
 
   /* ============================================================
