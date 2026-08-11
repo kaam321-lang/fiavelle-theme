@@ -2664,13 +2664,19 @@ a.header__icon--cart:hover,
 
 /* Product Media Modal Fullscreen Gallery Display for Desktop & Mobile */
 .product-media-modal {
-  z-index: 999999 !important;
+  z-index: -1 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
   background-color: rgba(0, 0, 0, 0.92) !important;
 }
 
-.product-media-modal[open] {
+.product-media-modal[open],
+.product-media-modal.open {
+  z-index: 999999 !important;
   visibility: visible !important;
   opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .product-media-modal__dialog {
