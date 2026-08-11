@@ -2960,6 +2960,14 @@ a.header__icon--cart:hover,
   display: none !important;
 }
 
+/* Hide error icon container in cart when there is no active error message */
+.cart-item__error:has(.cart-item__error-text:empty),
+.cart-item__error-text:empty,
+.cart-item__error-text:empty + .svg-wrapper,
+.cart-item__error-text:empty ~ .svg-wrapper {
+  display: none !important;
+}
+
 /* Format Product Options (Talla: S, Top: M / Bottom: M) inline */
 .cart-drawer .product-option,
 .cart-items .product-option,
