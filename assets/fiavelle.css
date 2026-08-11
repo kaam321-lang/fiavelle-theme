@@ -2969,6 +2969,27 @@ a.header__icon--cart:hover,
   display: flex !important;
 }
 
+/* Bulletproof styling for ALL (X) Close Buttons across the theme */
+.drawer__close,
+.cart-drawer__close,
+.product-media-modal__toggle,
+.menu-drawer__close-button,
+[id^="ModalClose-"],
+[id^="CartDrawer-Close"] {
+  pointer-events: auto !important;
+  z-index: 1000001 !important;
+  cursor: pointer !important;
+}
+
+.drawer__close *,
+.cart-drawer__close *,
+.product-media-modal__toggle *,
+.menu-drawer__close-button *,
+[id^="ModalClose-"] *,
+[id^="CartDrawer-Close"] * {
+  pointer-events: none !important;
+}
+
 /* Format Product Options (Talla: S, Top: M / Bottom: M) inline */
 .cart-drawer .product-option,
 .cart-items .product-option,

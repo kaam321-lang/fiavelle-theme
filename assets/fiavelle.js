@@ -239,6 +239,61 @@
   };
 
   /* ============================================================
+     GLOBAL BULLETPROOF CLOSE BUTTON (X) & OVERLAY DELEGATION
+     ============================================================ */
+  document.addEventListener('click', (event) => {
+    // 1. PRODUCT MEDIA ZOOM MODAL CLOSE BUTTON (X) & BACKDROP
+    const modalCloseBtn = event.target.closest(
+      '.product-media-modal__toggle, [id^="ModalClose-"], .modal__close-button'
+    );
+    const activeProductModal = document.querySelector('product-modal[open], .product-media-modal[open], .product-media-modal.open');
+
+    if (modalCloseBtn && activeProductModal) {
+      event.preventDefault();
+      event.stopPropagation();
+      activeProductModal.removeAttribute('open');
+      activeProductModal.classList.remove('open');
+      document.body.classList.remove('overflow-hidden');
+      return;
+    }
+
+    if (activeProductModal && event.target === activeProductModal) {
+      activeProductModal.removeAttribute('open');
+      activeProductModal.classList.remove('open');
+      document.body.classList.remove('overflow-hidden');
+      return;
+    }
+
+    // 2. CART DRAWER CLOSE BUTTON (X) & OVERLAY
+    const cartCloseBtn = event.target.closest(
+      '.drawer__close, .cart-drawer__close, [id^="CartDrawer-Close"], .cart-drawer__overlay, #CartDrawer-Overlay'
+    );
+    const cartDrawer = document.querySelector('cart-drawer.active, cart-drawer.animate, .drawer.active, #CartDrawer.active');
+
+    if (cartCloseBtn && cartDrawer) {
+      event.preventDefault();
+      event.stopPropagation();
+      cartDrawer.classList.remove('active', 'animate');
+      document.body.classList.remove('overflow-hidden');
+      return;
+    }
+
+    // 3. MOBILE MENU DRAWER CLOSE BUTTON (X)
+    const menuCloseBtn = event.target.closest(
+      '.menu-drawer__close-button, .mobile-menu-drawer__close, .btn-close-mobile'
+    );
+    const menuDrawer = document.querySelector('menu-drawer.active, .menu-drawer.active, #MobileMenuDrawer.is-active');
+
+    if (menuCloseBtn && menuDrawer) {
+      event.preventDefault();
+      event.stopPropagation();
+      menuDrawer.classList.remove('active', 'is-active');
+      document.body.classList.remove('overflow-hidden');
+      return;
+    }
+  }, true);
+
+  /* ============================================================
      INIT ALL MODULES
      ============================================================ */
   document.addEventListener('DOMContentLoaded', () => {
