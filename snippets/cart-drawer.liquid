@@ -465,9 +465,10 @@
                               id="CartDrawer-LineItemError-{{ item.index | plus: 1 }}"
                               class="cart-item__error"
                               role="alert"
+                              style="display: none !important;"
                             >
                               <small class="cart-item__error-text"></small>
-                              <span class="svg-wrapper">
+                              <span class="svg-wrapper" style="display: none !important;">
                                 {{- 'icon-error.svg' | inline_asset_content -}}
                               </span>
                             </div>
