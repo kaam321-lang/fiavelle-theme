@@ -2954,7 +2954,8 @@ a.header__icon--cart:hover,
   margin: 0 0 2px 0 !important;
 }
 
-/* Hide duplicate line price column in drawer to avoid price repetition */
+/* Hide duplicate line price column & header in drawer to avoid price repetition and header clutter */
+.cart-drawer .cart-items thead,
 .cart-drawer .cart-item__totals {
   display: none !important;
 }
