@@ -2683,7 +2683,7 @@ a.header__icon--cart:hover,
   margin: 0 auto !important;
 }
 
-.product-media-modal__content > * {
+.product-media-modal__content > *.active {
   display: block !important;
   width: 100% !important;
   max-width: 800px !important;
@@ -2691,6 +2691,10 @@ a.header__icon--cart:hover,
   margin: 0 auto 24px auto !important;
   border-radius: 8px !important;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+.product-media-modal__content > *:not(.active) {
+  display: none !important;
 }
 
 .product-media-modal__toggle {
