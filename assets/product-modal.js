@@ -16,41 +16,75 @@ if (!customElements.get('product-modal')) {
       }
 
       showActiveMedia() {
-        const mediaId =
+        let rawId =
           this.openedBy?.getAttribute('data-media-id') ||
           this.openedBy?.querySelector('[data-media-id]')?.getAttribute('data-media-id') ||
-          this.querySelector('[data-media-id]')?.getAttribute('data-media-id');
+          '';
 
-        if (!mediaId) return;
+        let mediaId = rawId;
+        if (rawId && rawId.includes('-')) {
+          const parts = rawId.split('-');
+          mediaId = parts[parts.length - 1];
+        }
 
-        this.querySelectorAll(
-          `[data-media-id]:not([data-media-id="${mediaId}"])`
-        ).forEach((element) => {
+        let activeMedia = null;
+        if (mediaId) {
+          activeMedia =
+            this.querySelector(`[data-media-id="${mediaId}"]`) ||
+            this.querySelector(`[data-media-id="${rawId}"]`) ||
+            this.querySelector(`[data-media-id*="${mediaId}"]`);
+        }
+
+        if (!activeMedia) {
+          activeMedia = this.querySelector('.product-media-modal__content > *');
+        }
+
+        this.querySelectorAll('.product-media-modal__content > *').forEach((element) => {
           element.classList.remove('active');
         });
 
-        const activeMedia = this.querySelector(`[data-media-id="${mediaId}"]`);
-        if (!activeMedia) return;
+        if (activeMedia) {
+          const activeMediaTemplate = activeMedia.querySelector('template');
+          if (activeMediaTemplate && activeMediaTemplate.content) {
+            activeMedia.appendChild(activeMediaTemplate.content.cloneNode(true));
+          }
+          activeMedia.classList.add('active');
+          if (typeof activeMedia.scrollIntoView === 'function') {
+            activeMedia.scrollIntoView();
+          }
 
-        const activeMediaTemplate = activeMedia.querySelector('template');
-        const activeMediaContent = activeMediaTemplate ? activeMediaTemplate.content : null;
-        activeMedia.classList.add('active');
-        if (typeof activeMedia.scrollIntoView === 'function') {
-          activeMedia.scrollIntoView();
-        }
-
-        const container = this.querySelector('[role="document"]');
-        if (container && activeMedia.width) {
-          container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
+          const container = this.querySelector('[role="document"]');
+          if (container && activeMedia.width) {
+            container.scrollLeft = (activeMedia.width - container.clientWidth) / 2;
+          }
         }
 
         if (
           activeMedia.nodeName == 'DEFERRED-MEDIA' &&
-          activeMediaContent &&
-          activeMediaContent.querySelector('.js-youtube')
-        )
+          activeMedia.querySelector('template') &&
+          activeMedia.querySelector('iframe') === null
+        ) {
           activeMedia.loadContent();
+        }
       }
     }
   );
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest(
+      '.product__modal-opener, .product__media-toggle, .product__media, .product__media-icon, .product__media-item img'
+    );
+    if (!trigger) return;
+
+    // Ignore if clicking close button inside modal or inside modal content
+    if (event.target.closest('.product-media-modal')) return;
+
+    const modal =
+      document.querySelector('product-modal') ||
+      document.querySelector('.product-media-modal');
+    if (modal && typeof modal.show === 'function' && !modal.hasAttribute('open')) {
+      const button = trigger.closest('modal-opener')?.querySelector('button') || trigger;
+      modal.show(button);
+    }
+  });
 }
