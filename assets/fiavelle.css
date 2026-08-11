@@ -2960,12 +2960,13 @@ a.header__icon--cart:hover,
   display: none !important;
 }
 
-/* Hide error icon container in cart when there is no active error message */
-.cart-item__error:has(.cart-item__error-text:empty),
-.cart-item__error-text:empty,
-.cart-item__error-text:empty + .svg-wrapper,
-.cart-item__error-text:empty ~ .svg-wrapper {
+/* Hide error icon container in cart by default, display only when non-empty error message is active */
+.cart-item__error {
   display: none !important;
+}
+
+.cart-item__error:has(.cart-item__error-text:not(:empty)) {
+  display: flex !important;
 }
 
 /* Format Product Options (Talla: S, Top: M / Bottom: M) inline */
