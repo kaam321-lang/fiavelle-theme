@@ -643,6 +643,7 @@ class ModalDialog extends HTMLElement {
   }
 }
 customElements.define('modal-dialog', ModalDialog);
+window.ModalDialog = ModalDialog;
 
 class BulkModal extends HTMLElement {
   constructor() {
