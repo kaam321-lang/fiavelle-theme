@@ -19,7 +19,8 @@
     {% # theme-check-disable %}
     data-selected-price-amount="{{ product.selected_or_first_available_variant.price | default: 0 | money_amount | escape }}"
     {% # theme-check-enable %}
-    <!-- Prominent Sizing Warning Banner -->
+    style="display: flex; flex-direction: column;"
+  >
     <div class="product-size-warning-banner" style="margin: 12px 0 16px 0; padding: 12px 16px; background: #fff5f6; border: 1.5px solid #e793a9; border-radius: 8px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(231, 147, 169, 0.15);">
       <div style="flex-shrink: 0; font-size: 1.8rem; line-height: 1;">
         ⚠️
@@ -30,6 +31,30 @@
         </p>
       </div>
     </div>
+
+    {%- if product.options.size > 0 -%}
+      <div class="variant-selection-summary" id="VariantSelectionSummary-{{ section.id }}" aria-live="polite">
+        <span class="summary-title">
+          <span>✨</span>
+          <span>Tu Elección:</span>
+        </span>
+        <span class="summary-badge">
+          {%- for option in product.options_with_values -%}
+            {%- assign opt_name_low = option.name | downcase -%}
+            <span class="summary-item">
+              {%- if opt_name_low contains 'top' or opt_name_low contains 'sostén' or opt_name_low contains 'sosten' or opt_name_low contains 'arriba' -%}
+                Top <strong data-option-summary="{{ forloop.index0 }}">{{ option.selected_value }}</strong>
+              {%- elsif opt_name_low contains 'bottom' or opt_name_low contains 'calzón' or opt_name_low contains 'calzon' or opt_name_low contains 'panty' or opt_name_low contains 'colaless' or opt_name_low contains 'abajo' -%}
+                Calzón <strong data-option-summary="{{ forloop.index0 }}">{{ option.selected_value }}</strong>
+              {%- else -%}
+                {{ option.name }} <strong data-option-summary="{{ forloop.index0 }}">{{ option.selected_value }}</strong>
+              {%- endif -%}
+            </span>
+            {%- unless forloop.last %}<span style="margin: 0 4px; color: #8d798b;">+</span>{% endunless -%}
+          {%- endfor -%}
+        </span>
+      </div>
+    {%- endif -%}
 
     {%- for option in product.options_with_values -%}
       {%- liquid
@@ -68,11 +93,26 @@
           %}
         </fieldset>
       {%- elsif picker_type == 'button' -%}
-        <fieldset class="js product-form__input product-form__input--pill">
+        {%- assign opt_name_low = option.name | downcase -%}
+        {%- assign order_style = '' -%}
+        {%- if opt_name_low contains 'top' or opt_name_low contains 'sostén' or opt_name_low contains 'sosten' or opt_name_low contains 'arriba' -%}
+          {%- assign order_style = 'order: 1;' -%}
+        {%- elsif opt_name_low contains 'bottom' or opt_name_low contains 'calzón' or opt_name_low contains 'calzon' or opt_name_low contains 'colaless' or opt_name_low contains 'abajo' -%}
+          {%- assign order_style = 'order: 2;' -%}
+        {%- endif -%}
+        <fieldset class="js product-form__input product-form__input--pill" style="{{ order_style }}">
           <legend class="form__label" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-            <span>{{ option.name }}</span>
+            <span style="font-weight: 600; color: #454344;">
+              {%- if opt_name_low contains 'top' or opt_name_low contains 'sostén' or opt_name_low contains 'sosten' or opt_name_low contains 'arriba' -%}
+                Sostén (Parte de Arriba)
+              {%- elsif opt_name_low contains 'bottom' or opt_name_low contains 'calzón' or opt_name_low contains 'calzon' or opt_name_low contains 'colaless' or opt_name_low contains 'abajo' -%}
+                Calzón (Parte de Abajo)
+              {%- else -%}
+                {{ option.name }}
+              {%- endif -%}
+            </span>
             {% assign option_name_lower = option.name | downcase %}
-            {% if option_name_lower contains 'talla' or option_name_lower contains 'size' %}
+            {% if option_name_lower contains 'talla' or option_name_lower contains 'size' or option_name_lower contains 'sostén' or option_name_lower contains 'calzón' %}
               <a href="/pages/tabla-de-tallas" class="size-guide-trigger" onclick="event.preventDefault(); document.getElementById('SizeGuideModal').style.display='flex';" style="font-size: 1.2rem; text-transform: none; text-decoration: underline; color: #8d798b; font-weight: 400; cursor: pointer;">
                 📏 ¿Cuál es mi talla?
               </a>
@@ -86,13 +126,26 @@
           %}
         </fieldset>
       {%- else -%}
-        <div class="product-form__input product-form__input--dropdown">
+        {%- assign opt_name_low = option.name | downcase -%}
+        {%- assign order_style = '' -%}
+        {%- if opt_name_low contains 'top' or opt_name_low contains 'sostén' or opt_name_low contains 'sosten' or opt_name_low contains 'arriba' -%}
+          {%- assign order_style = 'order: 1;' -%}
+        {%- elsif opt_name_low contains 'bottom' or opt_name_low contains 'calzón' or opt_name_low contains 'calzon' or opt_name_low contains 'colaless' or opt_name_low contains 'abajo' -%}
+          {%- assign order_style = 'order: 2;' -%}
+        {%- endif -%}
+        <div class="product-form__input product-form__input--dropdown" style="{{ order_style }}">
           <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 6px;">
-            <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}" style="margin: 0;">
-              {{ option.name }}
+            <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}" style="margin: 0; font-weight: 600; color: #454344;">
+              {%- if opt_name_low contains 'top' or opt_name_low contains 'sostén' or opt_name_low contains 'sosten' or opt_name_low contains 'arriba' -%}
+                Sostén (Parte de Arriba)
+              {%- elsif opt_name_low contains 'bottom' or opt_name_low contains 'calzón' or opt_name_low contains 'calzon' or opt_name_low contains 'colaless' or opt_name_low contains 'abajo' -%}
+                Calzón (Parte de Abajo)
+              {%- else -%}
+                {{ option.name }}
+              {%- endif -%}
             </label>
             {% assign option_name_lower = option.name | downcase %}
-            {% if option_name_lower contains 'talla' or option_name_lower contains 'size' %}
+            {% if option_name_lower contains 'talla' or option_name_lower contains 'size' or option_name_lower contains 'sostén' or option_name_lower contains 'calzón' %}
               <a href="/pages/tabla-de-tallas" class="size-guide-trigger" onclick="event.preventDefault(); document.getElementById('SizeGuideModal').style.display='flex';" style="font-size: 1.2rem; text-transform: none; text-decoration: underline; color: #8d798b; font-weight: 400; cursor: pointer;">
                 📏 ¿Cuál es mi talla?
               </a>
@@ -134,42 +187,44 @@
   </variant-selects>
 
   <!-- Size Guide Modal -->
-  <div id="SizeGuideModal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px;">
-    <div style="background:#fff8f8; color:#454344; max-width:520px; width:100%; padding:30px; border-radius:12px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,0.25); font-family:'Poppins',sans-serif;">
-      <button onclick="document.getElementById('SizeGuideModal').style.display='none';" style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:24px; cursor:pointer; color:#454344; line-height:1;">&times;</button>
-      <h3 style="font-family:'Collection Morning', serif; font-size:2.4rem; margin-top:0; margin-bottom:12px; text-align:center; color:#454344; font-weight:400;">Tabla de Tallas</h3>
-      <p style="font-size:1.2rem; line-height:1.4; color:#666; text-align:center; margin-bottom:20px;">Encuentra tu medida ideal para bralettes, conjuntos y batas Fiavelle.</p>
-      <table style="width:100%; border-collapse:collapse; text-align:center; font-size:1.2rem;">
-        <thead>
-          <tr style="background:#f3e8ea; border-bottom:2px solid #454344;">
-            <th style="padding:10px; text-align:left;">Talla</th>
-            <th style="padding:10px;">Busto (cm)</th>
-            <th style="padding:10px;">Cintura (cm)</th>
-            <th style="padding:10px;">Cadera (cm)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid rgba(69,67,68,0.1);">
-            <td style="padding:10px; font-weight:600; text-align:left;">S (36-38)</td>
-            <td style="padding:10px;">82 - 88</td>
-            <td style="padding:10px;">64 - 70</td>
-            <td style="padding:10px;">88 - 94</td>
-          </tr>
-          <tr style="border-bottom:1px solid rgba(69,67,68,0.1);">
-            <td style="padding:10px; font-weight:600; text-align:left;">M (38-40)</td>
-            <td style="padding:10px;">89 - 95</td>
-            <td style="padding:10px;">71 - 77</td>
-            <td style="padding:10px;">95 - 101</td>
-          </tr>
-          <tr>
-            <td style="padding:10px; font-weight:600; text-align:left;">L (40-42)</td>
-            <td style="padding:10px;">96 - 102</td>
-            <td style="padding:10px;">78 - 84</td>
-            <td style="padding:10px;">102 - 108</td>
-          </tr>
-        </tbody>
-      </table>
-      <div style="margin-top:20px; text-align:center;">
+  <div id="SizeGuideModal" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.5); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:16px;">
+    <div style="background:#fff8f8; color:#454344; max-width:92vw; width:520px; max-height:85vh; overflow-y:auto; -webkit-overflow-scrolling:touch; padding:24px 20px; border-radius:12px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,0.25); font-family:'Poppins',sans-serif;">
+      <button type="button" onclick="document.getElementById('SizeGuideModal').style.display='none';" style="position:absolute; top:12px; right:12px; background:none; border:none; font-size:24px; cursor:pointer; color:#454344; line-height:1; width:36px; height:36px; display:flex; align-items:center; justify-content:center;" aria-label="Cerrar modal">&times;</button>
+      <h3 style="font-family:'Collection Morning', serif; font-size:2.4rem; margin-top:0; margin-bottom:8px; text-align:center; color:#454344; font-weight:400;">Tabla de Tallas</h3>
+      <p style="font-size:1.2rem; line-height:1.4; color:#666; text-align:center; margin-bottom:16px;">Encuentra tu medida ideal para bralettes, conjuntos y batas Fiavelle.</p>
+      <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; margin-bottom:16px;">
+        <table style="width:100%; min-width:320px; border-collapse:collapse; text-align:center; font-size:1.2rem;">
+          <thead>
+            <tr style="background:#f3e8ea; border-bottom:2px solid #454344;">
+              <th style="padding:10px 8px; text-align:left;">Talla</th>
+              <th style="padding:10px 8px;">Busto (cm)</th>
+              <th style="padding:10px 8px;">Cintura (cm)</th>
+              <th style="padding:10px 8px;">Cadera (cm)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(69,67,68,0.1);">
+              <td style="padding:10px 8px; font-weight:600; text-align:left;">S (36-38)</td>
+              <td style="padding:10px 8px;">82 - 88</td>
+              <td style="padding:10px 8px;">64 - 70</td>
+              <td style="padding:10px 8px;">88 - 94</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(69,67,68,0.1);">
+              <td style="padding:10px 8px; font-weight:600; text-align:left;">M (38-40)</td>
+              <td style="padding:10px 8px;">89 - 95</td>
+              <td style="padding:10px 8px;">71 - 77</td>
+              <td style="padding:10px 8px;">95 - 101</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 8px; font-weight:600; text-align:left;">L (40-42)</td>
+              <td style="padding:10px 8px;">96 - 102</td>
+              <td style="padding:10px 8px;">78 - 84</td>
+              <td style="padding:10px 8px;">102 - 108</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="text-align:center;">
         <a href="/pages/tabla-de-tallas" style="font-size:1.2rem; color:#e793a9; text-decoration:underline; font-weight:500;">Ver guía completa de tallas y consejos de postura</a>
       </div>
     </div>

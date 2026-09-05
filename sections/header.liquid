@@ -77,84 +77,31 @@
       <nav class="header__inline-menu" role="navigation" aria-label="{{ 'accessibility.menu' | t }}">
         <ul class="list-menu list-menu--inline" role="list">
           
+          <!-- CONJUNTOS -->
+          <li>
+            <a href="/collections/conjuntos" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+              CONJUNTOS
+            </a>
+          </li>
+
+          <!-- DESTACADOS -->
+          <li>
+            <a href="/collections/destacados" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+              DESTACADOS
+            </a>
+          </li>
+          
           <!-- OFERTAS -->
           <li>
-            <a href="/collections/last-chance" class="header__menu-item list-menu__item link link--text focus-inset">
+            <a href="/collections/ofertas" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
               OFERTAS
             </a>
           </li>
-          
-          <!-- CONJUNTOS -->
-          <li>
-            <header-menu>
-              <details id="Details-HeaderMenu-1">
-                <summary id="HeaderMenu-conjuntos" class="header__menu-item list-menu__item link focus-inset">
-                  <span>CONJUNTOS</span>
-                  {% render 'icon-caret' %}
-                </summary>
-                <ul class="header__submenu list-menu motion-reduce global-media-settings" role="list">
-                  <li><a href="/collections/conjuntos" class="header__menu-item list-menu__item link link--text focus-inset">Dos piezas</a></li>
-                  <li><a href="/collections/conjuntos" class="header__menu-item list-menu__item link link--text focus-inset">Ligueros y arnés</a></li>
-                  <li><a href="/collections/conjuntos" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600;">Ver todos</a></li>
-                </ul>
-              </details>
-            </header-menu>
-          </li>
-          
-          <!-- BODYSUIT -->
-          <li>
-            <a href="/collections/bodysuit" class="header__menu-item list-menu__item link link--text focus-inset">
-              BODYSUIT
-            </a>
-          </li>
-          
-          <!-- BABYDOLL Y BATAS -->
-          <li>
-            <header-menu>
-              <details id="Details-HeaderMenu-3">
-                <summary id="HeaderMenu-babydoll-batas" class="header__menu-item list-menu__item link focus-inset">
-                  <span>BABYDOLL Y BATAS</span>
-                  {% render 'icon-caret' %}
-                </summary>
-                <ul class="header__submenu list-menu motion-reduce global-media-settings" role="list">
-                  <li><a href="/collections/babydoll" class="header__menu-item list-menu__item link link--text focus-inset">Babydoll</a></li>
-                  <li><a href="/collections/batas" class="header__menu-item list-menu__item link link--text focus-inset">Batas</a></li>
-                  <li><a href="/collections/pijamas" class="header__menu-item list-menu__item link link--text focus-inset">Pijamas</a></li>
-                  <li><a href="/collections/all" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600;">Ver todos</a></li>
-                </ul>
-              </details>
-            </header-menu>
-          </li>
-          
 
-          
-          <!-- BRALETTE Y BUSTIER -->
+          <!-- CONTACTO -->
           <li>
-            <a href="/collections/bralette-y-bustier" class="header__menu-item list-menu__item link link--text focus-inset">
-              BRALETTE Y BUSTIER
-            </a>
-          </li>
-          
-          <!-- BOTTOM -->
-          <li>
-            <a href="/collections/bottom" class="header__menu-item list-menu__item link link--text focus-inset">
-              BOTTOM
-            </a>
-          </li>
-          
-          <!-- MEDIAS Y ACCESORIOS -->
-          <li>
-            <a href="/collections/accesorios" class="header__menu-item list-menu__item link link--text focus-inset">
-              MEDIAS Y ACCESORIOS
-            </a>
-          </li>
-          
-
-          
-          <!-- GIFTCARDS -->
-          <li>
-            <a href="/products/gift-card" class="header__menu-item list-menu__item link link--text focus-inset">
-              GIFTCARDS
+            <a href="/pages/contacto" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+              CONTACTO
             </a>
           </li>
           
@@ -176,34 +123,18 @@
     </button>
     <nav class="mobile-menu-drawer__nav">
       <ul class="mobile-menu-list" style="list-style: none; padding-left: 20px; padding-top: 20px;">
-        <li class="mobile-menu-item" style="margin-bottom: 15px;"><a href="/collections/last-chance" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">OFERTAS</a></li>
-        
         <li class="mobile-menu-item" style="margin-bottom: 15px;">
-          <span class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344;">CONJUNTOS</span>
-          <ul style="list-style: none; padding-left: 15px; margin: 5px 0 10px 0; border-left: 1px solid #aea5a4;">
-            <li style="margin-bottom: 8px;"><a href="/collections/conjuntos" class="mobile-menu-link" style="font-size: 1.4rem; color: rgba(69, 67, 68, 0.8); text-decoration: none;">Dos piezas</a></li>
-            <li style="margin-bottom: 8px;"><a href="/collections/conjuntos" class="mobile-menu-link" style="font-size: 1.4rem; color: rgba(69, 67, 68, 0.8); text-decoration: none;">Ligueros y arnés</a></li>
-          </ul>
+          <a href="/collections/conjuntos" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">CONJUNTOS</a>
         </li>
-
-        <li class="mobile-menu-item" style="margin-bottom: 15px;"><a href="/collections/bodysuit" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">BODYSUIT</a></li>
-
         <li class="mobile-menu-item" style="margin-bottom: 15px;">
-          <span class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344;">BABYDOLL Y BATAS</span>
-          <ul style="list-style: none; padding-left: 15px; margin: 5px 0 10px 0; border-left: 1px solid #aea5a4;">
-            <li style="margin-bottom: 8px;"><a href="/collections/babydoll" class="mobile-menu-link" style="font-size: 1.4rem; color: rgba(69, 67, 68, 0.8); text-decoration: none;">Babydoll</a></li>
-            <li style="margin-bottom: 8px;"><a href="/collections/batas" class="mobile-menu-link" style="font-size: 1.4rem; color: rgba(69, 67, 68, 0.8); text-decoration: none;">Batas</a></li>
-            <li style="margin-bottom: 8px;"><a href="/collections/pijamas" class="mobile-menu-link" style="font-size: 1.4rem; color: rgba(69, 67, 68, 0.8); text-decoration: none;">Pijamas</a></li>
-          </ul>
+          <a href="/collections/destacados" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">DESTACADOS</a>
         </li>
-
-
-
-        <li class="mobile-menu-item" style="margin-bottom: 15px;"><a href="/collections/bralette-y-bustier" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">BRALETTE Y BUSTIER</a></li>
-        <li class="mobile-menu-item" style="margin-bottom: 15px;"><a href="/collections/bottom" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">BOTTOM</a></li>
-        <li class="mobile-menu-item" style="margin-bottom: 15px;"><a href="/collections/accesorios" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">MEDIAS Y ACCESORIOS</a></li>
-
-        <li class="mobile-menu-item" style="margin-bottom: 15px;"><a href="/products/gift-card" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">GIFTCARDS</a></li>
+        <li class="mobile-menu-item" style="margin-bottom: 15px;">
+          <a href="/collections/ofertas" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">OFERTAS</a>
+        </li>
+        <li class="mobile-menu-item" style="margin-bottom: 15px;">
+          <a href="/pages/contacto" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">CONTACTO</a>
+        </li>
       </ul>
     </nav>
   </div>

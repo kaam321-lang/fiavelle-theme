@@ -1,0 +1,209 @@
+{%- comment -%}
+  Sticky Add to Cart for Mobile
+  Renders a bottom floating bar on mobile screens when main ATC button scrolls out of view.
+  Accepts:
+  - product: {Object} Product object.
+  Usage:
+  {% render 'sticky-atc-mobile', product: product %}
+{%- endcomment -%}
+
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign featured_img = current_variant.featured_image | default: product.featured_image
+-%}
+
+<div id="StickyAtcMobile-{{ section.id }}" class="sticky-atc-mobile" aria-hidden="true">
+  <div class="sticky-atc-mobile__container">
+    <div class="sticky-atc-mobile__product">
+      {%- if featured_img -%}
+        <img
+          src="{{ featured_img | image_url: width: 120 }}"
+          alt="{{ product.title | escape }}"
+          width="48"
+          height="48"
+          loading="lazy"
+          class="sticky-atc-mobile__image"
+        >
+      {%- endif -%}
+      <div class="sticky-atc-mobile__info">
+        <span class="sticky-atc-mobile__title">{{ product.title | escape }}</span>
+        <div class="sticky-atc-mobile__price" data-sticky-price>
+          {{ current_variant.price | money }}
+        </div>
+      </div>
+    </div>
+    <button
+      type="button"
+      class="sticky-atc-mobile__button"
+      id="StickyAtcButton-{{ section.id }}"
+      {% unless current_variant.available %}disabled{% endunless %}
+    >
+      <span class="sticky-atc-mobile__button-text">
+        {%- if current_variant.available -%}
+          Agregar
+        {%- else -%}
+          Agotado
+        {%- endif -%}
+      </span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .sticky-atc-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid #f2d2dc;
+    box-shadow: 0 -4px 18px rgba(231, 147, 169, 0.18);
+    padding: 8px 16px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    transform: translateY(110%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .sticky-atc-mobile.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sticky-atc-mobile__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sticky-atc-mobile__product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  .sticky-atc-mobile__image {
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #f2d2dc;
+    flex-shrink: 0;
+  }
+
+  .sticky-atc-mobile__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .sticky-atc-mobile__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #454344;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+  }
+
+  .sticky-atc-mobile__price {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #c94a6e;
+    line-height: 1.2;
+    margin-top: 2px;
+  }
+
+  .sticky-atc-mobile__button {
+    background: #e793a9;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(231, 147, 169, 0.4);
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+
+  .sticky-atc-mobile__button:active {
+    transform: scale(0.97);
+    background: #d17d93;
+  }
+
+  .sticky-atc-mobile__button:disabled {
+    background: #e0e0e0;
+    color: #999999;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  @media screen and (min-width: 768px) {
+    .sticky-atc-mobile {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    function initStickyAtc() {
+      const bar = document.getElementById('StickyAtcMobile-{{ section.id }}');
+      const atcBtn = document.querySelector('.product-form__submit');
+      const stickyBtn = document.getElementById('StickyAtcButton-{{ section.id }}');
+      if (!bar || !atcBtn || !stickyBtn) return;
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+              bar.classList.add('is-visible');
+              bar.setAttribute('aria-hidden', 'false');
+            } else {
+              bar.classList.remove('is-visible');
+              bar.setAttribute('aria-hidden', 'true');
+            }
+          });
+        }, { threshold: 0.1 });
+
+        observer.observe(atcBtn);
+      }
+
+      stickyBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (atcBtn.disabled || atcBtn.getAttribute('aria-disabled') === 'true') {
+          const picker = document.querySelector('variant-selects') || document.querySelector('.product-form__input');
+          if (picker) {
+            picker.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          atcBtn.click();
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initStickyAtc);
+    } else {
+      initStickyAtc();
+    }
+  })();
+</script>

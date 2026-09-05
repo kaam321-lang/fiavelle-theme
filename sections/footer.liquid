@@ -13,7 +13,7 @@
       <div class="footer__centered-menu">
         <ul class="footer__horizontal-list list-unstyled" role="list">
           {%- for link in footer_menu.links -%}
-            {%- assign link_title_raw = link.title | escape | uppercase -%}
+            {%- assign link_title_raw = link.title | escape | upcase -%}
             {%- assign link_title_clean = link_title_raw -%}
             {%- if link_title_raw == 'SEARCH' -%}
               {%- assign link_title_clean = 'BUSCAR' -%}

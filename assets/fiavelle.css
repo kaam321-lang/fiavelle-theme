@@ -3130,4 +3130,53 @@ a.header__icon--cart:hover,
   color: #e793a9 !important;
 }
 
+/* ============================================================
+   CORRECCIÓN DE ESPACIADO DE MENÚ Y FLECHA (CARET)
+   ============================================================ */
+.list-menu--inline {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 45px !important; /* Espacio elegante entre CONJUNTOS y BABYDOLL Y BATAS */
+  margin: 0 auto !important;
+}
 
+/* Contenedor del ítem de menú: evita que la flecha quede encima de la última letra */
+summary.header__menu-item,
+.header__inline-menu summary.header__menu-item {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important; /* Espacio limpio entre el texto y la flecha */
+  padding: 0.8rem 1.6rem !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+/* El texto dentro del summary */
+summary.header__menu-item span,
+.header__inline-menu summary.header__menu-item span {
+  display: inline-block !important;
+  margin-right: 2px !important;
+}
+
+/* La flecha (caret): posición estática al lado derecho del texto con separación */
+summary.header__menu-item .icon-caret,
+.header__inline-menu summary .icon-caret {
+  position: static !important;
+  display: inline-block !important;
+  margin-left: 8px !important;
+  margin-right: 0 !important;
+  vertical-align: middle !important;
+  height: 0.6rem !important;
+  width: 0.9rem !important;
+  flex-shrink: 0 !important;
+  transition: transform var(--duration-default, 0.2s) ease !important;
+}
+
+/* Rotación suave de la flecha al abrir el desplegable */
+details[open] > summary.header__menu-item .icon-caret,
+details[open] > summary .icon-caret {
+  transform: rotate(180deg) !important;
+}

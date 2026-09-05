@@ -148,8 +148,17 @@
                         <dl>
                           {%- if item.product.has_only_default_variant == false -%}
                             {%- for option in item.options_with_values -%}
+                              {%- assign opt_name_lower = option.name | downcase -%}
                               <div class="product-option">
-                                <dt>{{ option.name }}:</dt>
+                                <dt>
+                                  {%- if opt_name_lower contains 'top' or opt_name_lower contains 'sostén' or opt_name_lower contains 'sosten' or opt_name_lower contains 'arriba' -%}
+                                    Top:
+                                  {%- elsif opt_name_lower contains 'bottom' or opt_name_lower contains 'calzón' or opt_name_lower contains 'calzon' or opt_name_lower contains 'panty' or opt_name_lower contains 'colaless' or opt_name_lower contains 'abajo' -%}
+                                    Panty:
+                                  {%- else -%}
+                                    {{ option.name }}:
+                                  {%- endif -%}
+                                </dt>
                                 <dd>{{ option.value }}</dd>
                               </div>
                             {%- endfor -%}

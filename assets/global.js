@@ -1070,9 +1070,11 @@ class VariantSelects extends HTMLElement {
   }
 
   connectedCallback() {
+    this.updateSummary();
     this.addEventListener('change', (event) => {
       const target = this.getInputForEventTarget(event.target);
       this.updateSelectionMetadata(event);
+      this.updateSummary();
 
       this.dispatchProductSelectEvent();
 
@@ -1083,6 +1085,22 @@ class VariantSelects extends HTMLElement {
           selectedOptionValues: this.selectedOptionValues,
         },
       });
+    });
+  }
+
+  updateSummary() {
+    const summary = this.querySelector('.variant-selection-summary') || document.getElementById(`VariantSelectionSummary-${this.dataset.section}`);
+    if (!summary) return;
+
+    const groups = this.querySelectorAll('fieldset, .product-form__input--dropdown');
+    groups.forEach((group, index) => {
+      const checkedInput = group.querySelector('input:checked');
+      const selectedSelectOption = group.querySelector('select option:checked, select option[selected]');
+      const value = checkedInput ? checkedInput.value : (selectedSelectOption ? selectedSelectOption.value : '');
+      const summaryTarget = summary.querySelector(`[data-option-summary="${index}"]`);
+      if (summaryTarget && value) {
+        summaryTarget.textContent = value;
+      }
     });
   }
 

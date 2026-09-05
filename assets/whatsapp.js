@@ -10,8 +10,8 @@
   // ============================================================
   // CONFIGURATION - Update these values in Shopify theme settings
   // ============================================================
-  var WHATSAPP_NUMBER = '56912345678'; // Replace with actual number (country code + number, no +)
-  var WHATSAPP_MESSAGE = encodeURIComponent('Hola! Me gustaría obtener más información sobre sus productos. 🌸');
+  var WHATSAPP_NUMBER = '56941944494'; // Official WhatsApp Fiavelle: +56 9 4194 4494
+  var WHATSAPP_MESSAGE = encodeURIComponent('¡Hola Fiavelle! Me gustaría obtener más información sobre sus productos y asesoría con mis tallas. 🌸');
 
   // ============================================================
   // CREATE BUTTON

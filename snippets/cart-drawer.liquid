@@ -74,6 +74,29 @@
           </span>
         </button>
       </div>
+      {%- if cart != empty -%}
+        {%- assign free_shipping_threshold = 6000000 -%}
+        {%- assign cart_total = cart.total_price -%}
+        <div class="cart-drawer__free-shipping" style="padding: 12px 20px; background: #fff5f7; border-bottom: 1px solid #f2d2dc; font-family: 'Poppins', sans-serif;">
+          {%- if cart_total >= free_shipping_threshold -%}
+            <p style="margin: 0 0 6px 0; font-size: 1.25rem; font-weight: 600; color: #2e7d32; display: flex; align-items: center; gap: 6px;">
+              <span>🎉</span> ¡Felicidades! Tienes <strong>Envío Gratis</strong>
+            </p>
+            <div style="width: 100%; height: 7px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+              <div style="width: 100%; height: 100%; background: #4caf50; border-radius: 4px;"></div>
+            </div>
+          {%- else -%}
+            {%- assign remaining_amount = free_shipping_threshold | minus: cart_total -%}
+            {%- assign progress_pct = cart_total | times: 100 | divided_by: free_shipping_threshold -%}
+            <p style="margin: 0 0 6px 0; font-size: 1.25rem; font-weight: 500; color: #454344;">
+              Te faltan <strong style="color: #c94a6e;">{{ remaining_amount | money }}</strong> para <strong>Envío Gratis</strong>
+            </p>
+            <div style="width: 100%; height: 7px; background: #fce4ec; border-radius: 4px; overflow: hidden;">
+              <div style="width: {{ progress_pct }}%; height: 100%; background: linear-gradient(90deg, #e793a9, #c94a6e); border-radius: 4px; transition: width 0.3s ease;"></div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       <cart-drawer-items
         view-event-payload="{{ cart | standard_event_data: 'view', context: 'dialog' | escape }}"
         view-event-trigger="manual"
@@ -191,8 +214,17 @@
                             <dl>
                               {%- if item.product.has_only_default_variant == false -%}
                                 {%- for option in item.options_with_values -%}
+                                  {%- assign opt_name_lower = option.name | downcase -%}
                                   <div class="product-option">
-                                    <dt>{{ option.name }}:</dt>
+                                    <dt>
+                                      {%- if opt_name_lower contains 'top' or opt_name_lower contains 'sostén' or opt_name_lower contains 'sosten' or opt_name_lower contains 'arriba' -%}
+                                        Top:
+                                      {%- elsif opt_name_lower contains 'bottom' or opt_name_lower contains 'calzón' or opt_name_lower contains 'calzon' or opt_name_lower contains 'panty' or opt_name_lower contains 'colaless' or opt_name_lower contains 'abajo' -%}
+                                        Panty:
+                                      {%- else -%}
+                                        {{ option.name }}:
+                                      {%- endif -%}
+                                    </dt>
                                     <dd>
                                       {{ option.value -}}
                                       {%- unless forloop.last %}, {% endunless %}

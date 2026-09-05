@@ -61,6 +61,35 @@
       class="product__media-list contains-media grid grid--peek list-unstyled slider slider--mobile"
       role="list"
     >
+      {%- if product.media.size == 0 -%}
+        {%- liquid
+          assign asset_img_name = 'prod_' | append: product.handle | replace: '-', '_' | append: '.jpg'
+        -%}
+        <li
+          id="Slide-{{ section.id }}-fallback"
+          class="product__media-item grid__item slider__slide is-active product__media-item--single"
+          data-media-id="{{ section.id }}-fallback"
+        >
+          <div class="product-media-container media-type-image media-fit-cover global-media-settings gradient" style="--ratio: 1.0; --preview-ratio: 1.0;">
+            <modal-opener class="product__modal-opener product__modal-opener--image no-js-hidden" data-modal="#ProductModal-{{ section.id }}">
+              <div class="product__media media media--transparent">
+                <img
+                  src="{{ asset_img_name | asset_url }}"
+                  alt="{{ product.title | escape }}"
+                  class="image-magnify-lightbox"
+                  loading="lazy"
+                  width="1000"
+                  height="1250"
+                  style="width: 100%; height: auto; object-fit: cover; cursor: zoom-in;"
+                >
+              </div>
+              <button class="product__media-toggle quick-add-hidden" type="button" aria-haspopup="dialog" data-media-id="fallback">
+                <span class="visually-hidden">Abrir vista ampliada</span>
+              </button>
+            </modal-opener>
+          </div>
+        </li>
+      {%- endif -%}
       {%- if product.selected_or_first_available_variant.featured_media != null -%}
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
         <li

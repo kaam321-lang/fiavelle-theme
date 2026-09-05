@@ -63,6 +63,7 @@
     "button_label": "Suscribirse"
   },
   "accessibility": {
+    "menu": "Menú",
     "skip_to_text": "Ir directamente al contenido",
     "close": "Cerrar",
     "unit_price_separator": "por",
@@ -317,7 +318,9 @@
       "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Aranceles incluidos. Impuestos, descuentos y <a href=\"{{ link }}\">envío</a> calculados en la pantalla de pago.",
       "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Aranceles incluidos. Impuestos, descuentos y envío calculados en la pantalla de pago.",
       "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Impuestos, descuentos y <a href=\"{{ link }}\">envío</a> calculados en la pantalla de pago.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Impuestos, descuentos y envío calculados en la pantalla de pago."
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "Impuestos, descuentos y envío calculados en la pantalla de pago.",
+      "subtotal": "Subtotal",
+      "taxes_and_shipping_policy_at_checkout_html": "Impuestos y <a href=\"{{ link }}\">gastos de envío</a> calculados en el checkout"
     },
     "footer": {
       "payment": "Formas de pago"
@@ -506,7 +509,8 @@
       "tracking_number": "Número de seguimiento",
       "subtotal": "Subtotal",
       "total_duties": "Aranceles",
-      "total_refunded": "Reembolsado"
+      "total_refunded": "Reembolsado",
+      "details": "Detalles del pedido"
     }
   },
   "gift_cards": {

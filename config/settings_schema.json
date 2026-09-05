@@ -4,8 +4,8 @@
     "theme_name": "Fiavelle",
     "theme_version": "1.0.0",
     "theme_author": "Fiavelle Studio",
-    "theme_documentation_url": "",
-    "theme_support_url": ""
+    "theme_documentation_url": "https://fiavelle.cl",
+    "theme_support_url": "https://fiavelle.cl"
   },
   {
     "name": "Colores",
@@ -43,7 +43,6 @@
       {
         "type": "color_scheme_group",
         "id": "color_schemes",
-        "label": "Esquemas de color",
         "definition": [
           {
             "id": "background-1",
@@ -64,8 +63,11 @@
           "primary_button_border": "primary_button",
           "primary_button_label": "primary_button_label",
           "primary_button": "primary_button",
+          "secondary_button": "background",
           "secondary_button_border": "primary_button",
           "secondary_button_label": "foreground",
+          "on_primary_button": "primary_button_label",
+          "on_secondary_button": "foreground",
           "links": "foreground",
           "icons": "foreground",
           "heading": "foreground",
