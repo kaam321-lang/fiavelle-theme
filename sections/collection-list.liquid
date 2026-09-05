@@ -38,16 +38,17 @@
             {%- else -%}
               {%- liquid
                 assign fallback_image = ''
-                if forloop.index == 1
-                  assign fallback_image = 'https://cdn.shopify.com/s/files/1/0843/0836/1436/files/lace_black_model_1783655867884.jpg?v=1783663573'
-                elsif forloop.index == 2
-                  assign fallback_image = 'https://cdn.shopify.com/s/files/1/0843/0836/1436/files/bralette_rose_model_1783655927098.jpg?v=1783663479'
-                elsif forloop.index == 3
-                  assign fallback_image = 'https://cdn.shopify.com/s/files/1/0843/0836/1436/files/robe_martini_model_1783655899470.jpg?v=1783663652'
+                assign block_title = block.settings.title | default: collection.title | downcase
+                if block_title contains 'batas' or forloop.index == 2
+                  assign fallback_image = 'banner_batas.jpg' | asset_url
+                elsif block_title contains 'babydoll' or forloop.index == 3
+                  assign fallback_image = 'banner_babydoll.jpg' | asset_url
+                elsif block_title contains 'conjuntos' or forloop.index == 1
+                  assign fallback_image = 'banner_conjuntos.jpg' | asset_url
                 endif
               -%}
               {%- if fallback_image != blank -%}
-                <img src="{{ fallback_image }}" class="collection-card__image" alt="{{ collection.title | default: block.settings.title | escape }}" loading="lazy" width="1100" height="1100">
+                <img src="{{ fallback_image }}" class="collection-card__image" alt="{{ block.settings.title | default: collection.title | escape }}" loading="lazy" width="1100" height="1100">
               {%- else -%}
                 {{ 'collection-apparel-' | append: placeholder_image_index | placeholder_svg_tag: 'collection-card__image placeholder' }}
               {%- endif -%}
@@ -56,9 +57,9 @@
           </div>
           <div class="collection-card__label">
             <h3 class="collection-card__title">
-              {{- collection.title | default: block.settings.title | escape -}}
+              {{- block.settings.title | default: collection.title | escape -}}
             </h3>
-            <span class="collection-card__link">Ver colección →</span>
+            <span class="collection-card__cta">VER COLECCIÓN →</span>
           </div>
         </a>
       </div>

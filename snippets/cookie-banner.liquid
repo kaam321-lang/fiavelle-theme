@@ -17,6 +17,28 @@
 </div>
 
 <script>
+  // Google Consent Mode v2 Initialization
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  var savedConsent = localStorage.getItem("fiavelle_cookie_consent");
+  if (savedConsent === "accepted") {
+    gtag('consent', 'default', {
+      'ad_storage': 'granted',
+      'analytics_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
+    });
+  } else {
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 500
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function() {
     var banner = document.getElementById("BrandCookieBanner");
     var acceptBtn = document.getElementById("CookieAcceptBtn");
@@ -37,6 +59,13 @@
 
     acceptBtn.addEventListener("click", function() {
       localStorage.setItem("fiavelle_cookie_consent", "accepted");
+      // Update Google Consent Mode v2
+      gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+      });
       // Notify Shopify Privacy API if available
       if (window.Shopify && window.Shopify.customerPrivacy && window.Shopify.customerPrivacy.setTrackingConsent) {
         window.Shopify.customerPrivacy.setTrackingConsent(true, function() {});
@@ -46,6 +75,13 @@
 
     declineBtn.addEventListener("click", function() {
       localStorage.setItem("fiavelle_cookie_consent", "declined");
+      // Update Google Consent Mode v2
+      gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+      });
       if (window.Shopify && window.Shopify.customerPrivacy && window.Shopify.customerPrivacy.setTrackingConsent) {
         window.Shopify.customerPrivacy.setTrackingConsent(false, function() {});
       }
