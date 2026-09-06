@@ -2439,6 +2439,14 @@ collection-component .product-grid .grid__item,
   text-transform: uppercase !important;
 }
 
+/* Value Props Section: Strict Poppins typography to prevent font ligature corruptions with numbers */
+.value-prop-item h4,
+.value-props-section h4,
+.value-prop-item p,
+.value-props-section p {
+  font-family: 'Poppins', sans-serif !important;
+}
+
 /* ============================================================
    ACCORDION ROW ICONS & ALIGNMENT FIX
    ============================================================ */
