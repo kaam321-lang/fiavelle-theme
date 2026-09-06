@@ -1,4 +1,8 @@
+AssetPreload:
+  enabled: false
+
 MatchingTranslations:
   enabled: false
+
 TemplateLength:
   enabled: false
