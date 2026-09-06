@@ -1,11 +1,22 @@
 {% comment %}
   Fiavelle Product Card Snippet
-  Uses dynamic product images from Shopify CDN instead of static theme assets
+  Uses dynamic product images from Shopify CDN with smooth CSS hover transitions
 {% endcomment %}
+
+{%- liquid
+  assign secondary_image = null
+  if show_secondary_image
+    if card_product.images.size > 1
+      assign secondary_image = card_product.images[1]
+    elsif card_product.media.size > 1
+      assign secondary_image = card_product.media[1]
+    endif
+  endif
+-%}
 
 <div class="product-card" style="display: flex; flex-direction: column; width: 100%; position: relative; margin-bottom: 2rem;">
   <div class="product-card__media-wrapper" style="position: relative; width: 100%; padding-bottom: 125%; overflow: hidden; background: #f9f9f9; border-radius: 4px;">
-    <a href="{{ card_product.url }}" style="display: block; position: absolute; inset: 0; width: 100%; height: 100%;">
+    <a href="{{ card_product.url }}" class="product-card__link" style="display: block; position: absolute; inset: 0; width: 100%; height: 100%;">
       {%- if card_product.featured_image != blank -%}
         <img
           src="{{ card_product.featured_image | image_url: width: 600 }}"
@@ -13,20 +24,16 @@
           loading="{{ lazy_load | default: 'lazy' }}"
           width="600"
           height="750"
-          style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
           class="product-card__image product-card__image--primary"
         >
-        {%- if show_secondary_image and card_product.images[1] != blank -%}
+        {%- if secondary_image != blank -%}
           <img
-            src="{{ card_product.images[1] | image_url: width: 600 }}"
-            alt="{{ card_product.images[1].alt | default: card_product.title | escape }}"
+            src="{{ secondary_image | image_url: width: 600 }}"
+            alt="{{ secondary_image.alt | default: card_product.title | escape }}"
             loading="lazy"
             width="600"
             height="750"
-            style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.4s ease; opacity: 0;"
             class="product-card__image product-card__image--secondary"
-            onmouseenter="this.style.opacity='1'"
-            onmouseleave="this.style.opacity='0'"
           >
         {%- endif -%}
       {%- else -%}
@@ -34,7 +41,7 @@
       {%- endif -%}
     </a>
     {%- if card_product.compare_at_price > card_product.price -%}
-      <span class="product-card__badge" style="position: absolute; top: 10px; left: 10px; background: #1a1a1a; color: #fff; font-size: 1.1rem; font-weight: 600; padding: 4px 8px; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 2px;">
+      <span class="product-card__badge" style="position: absolute; top: 10px; left: 10px; background: #1a1a1a; color: #fff; font-size: 1.1rem; font-weight: 600; padding: 4px 8px; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 2px; z-index: 3; pointer-events: none;">
         Oferta
       </span>
     {%- endif -%}

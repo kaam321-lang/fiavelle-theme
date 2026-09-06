@@ -1613,7 +1613,7 @@ input, textarea, select {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  transition: opacity 0.4s ease, transform 0.4s ease !important;
+  transition: opacity 0.35s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .product-card__image--primary {
@@ -1624,15 +1624,19 @@ input, textarea, select {
 .product-card__image--secondary {
   opacity: 0 !important;
   z-index: 2 !important;
+  pointer-events: none !important;
 }
 
-/* Al hacer hover sobre la tarjeta */
-.product-card:hover .product-card__image--primary {
-  opacity: 0 !important;
+/* Al hacer hover sobre la tarjeta: zoom táctil suave y fade-in de la imagen secundaria si existe */
+.product-card:hover .product-card__image--primary,
+.product-card__media-wrapper:hover .product-card__image--primary {
+  transform: scale(1.04) !important;
 }
 
-.product-card:hover .product-card__image--secondary {
+.product-card:hover .product-card__image--secondary,
+.product-card__media-wrapper:hover .product-card__image--secondary {
   opacity: 1 !important;
+  transform: scale(1.04) !important;
 }
 
 .card__heading {
