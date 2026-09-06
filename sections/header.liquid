@@ -76,35 +76,41 @@
       <!-- Desktop Navigation -->
       <nav class="header__inline-menu" role="navigation" aria-label="{{ 'accessibility.menu' | t }}">
         <ul class="list-menu list-menu--inline" role="list">
-          
-          <!-- CONJUNTOS -->
-          <li>
-            <a href="/collections/conjuntos" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
-              CONJUNTOS
-            </a>
-          </li>
-
-          <!-- DESTACADOS -->
-          <li>
-            <a href="/collections/destacados" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
-              DESTACADOS
-            </a>
-          </li>
-          
-          <!-- OFERTAS -->
-          <li>
-            <a href="/collections/ofertas" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
-              OFERTAS
-            </a>
-          </li>
-
-          <!-- CONTACTO -->
-          <li>
-            <a href="/pages/contacto" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
-              CONTACTO
-            </a>
-          </li>
-          
+          {%- if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 -%}
+            {%- for link in linklists[section.settings.menu].links -%}
+              <li>
+                <a href="{{ link.url }}" class="header__menu-item list-menu__item link link--text focus-inset{% if link.current %} list-menu__item--active{% endif %}" style="font-weight: 600; text-transform: uppercase;">
+                  {{ link.title | escape }}
+                </a>
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li>
+              <a href="/collections/conjuntos" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+                CONJUNTOS
+              </a>
+            </li>
+            <li>
+              <a href="/collections/babydoll" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+                BABYDOLL
+              </a>
+            </li>
+            <li>
+              <a href="/collections/batas" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+                BATAS
+              </a>
+            </li>
+            <li>
+              <a href="/collections/destacados" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+                DESTACADOS
+              </a>
+            </li>
+            <li>
+              <a href="/pages/contacto" class="header__menu-item list-menu__item link link--text focus-inset" style="font-weight: 600; text-transform: uppercase;">
+                CONTACTO
+              </a>
+            </li>
+          {%- endif -%}
         </ul>
       </nav>
     </div>
@@ -123,18 +129,29 @@
     </button>
     <nav class="mobile-menu-drawer__nav">
       <ul class="mobile-menu-list" style="list-style: none; padding-left: 20px; padding-top: 20px;">
-        <li class="mobile-menu-item" style="margin-bottom: 15px;">
-          <a href="/collections/conjuntos" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">CONJUNTOS</a>
-        </li>
-        <li class="mobile-menu-item" style="margin-bottom: 15px;">
-          <a href="/collections/destacados" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">DESTACADOS</a>
-        </li>
-        <li class="mobile-menu-item" style="margin-bottom: 15px;">
-          <a href="/collections/ofertas" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">OFERTAS</a>
-        </li>
-        <li class="mobile-menu-item" style="margin-bottom: 15px;">
-          <a href="/pages/contacto" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">CONTACTO</a>
-        </li>
+        {%- if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 -%}
+          {%- for link in linklists[section.settings.menu].links -%}
+            <li class="mobile-menu-item" style="margin-bottom: 15px;">
+              <a href="{{ link.url }}" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">{{ link.title | escape }}</a>
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          <li class="mobile-menu-item" style="margin-bottom: 15px;">
+            <a href="/collections/conjuntos" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">CONJUNTOS</a>
+          </li>
+          <li class="mobile-menu-item" style="margin-bottom: 15px;">
+            <a href="/collections/babydoll" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">BABYDOLL</a>
+          </li>
+          <li class="mobile-menu-item" style="margin-bottom: 15px;">
+            <a href="/collections/batas" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">BATAS</a>
+          </li>
+          <li class="mobile-menu-item" style="margin-bottom: 15px;">
+            <a href="/collections/destacados" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">DESTACADOS</a>
+          </li>
+          <li class="mobile-menu-item" style="margin-bottom: 15px;">
+            <a href="/pages/contacto" class="mobile-menu-link" style="font-weight: 600; text-transform: uppercase; font-size: 1.6rem; color: #454344; text-decoration: none;">CONTACTO</a>
+          </li>
+        {%- endif -%}
       </ul>
     </nav>
   </div>
