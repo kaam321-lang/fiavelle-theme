@@ -30,17 +30,16 @@
       <div class="header__center-group">
         {%- if request.page_type == 'index' -%}
           <h1 class="header__heading" style="margin: 0; line-height: 0;">
-            <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="Fiavelle — Conjuntos de Lencería Femenina a Tu Medida">
+            <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="Fiavelle — Conjuntos de Lencería Femenina en Chile">
               <img
                 src="{{ 'logo.svg' | asset_url }}"
                 class="header__heading-logo"
-                alt="Fiavelle — Conjuntos de Lencería Femenina a Tu Medida en Chile"
+                alt="Fiavelle — Conjuntos de Lencería Femenina en Chile"
                 width="{{ section.settings.logo_width }}"
                 height="60"
                 loading="eager"
                 style="max-width: {{ section.settings.logo_width }}px; height: auto; display: block;"
               >
-              <span class="visually-hidden">Fiavelle — Conjuntos de Lencería Femenina a Tu Medida en Chile</span>
             </a>
           </h1>
         {%- else -%}

@@ -11,19 +11,21 @@
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- else -%}
-      <link rel="icon" type="image/svg+xml" href="{{ 'logo.svg' | asset_url }}">
-      <link rel="icon" type="image/png" href="{{ 'logo.png' | asset_url }}">
-      <link rel="apple-touch-icon" href="{{ 'logo.png' | asset_url }}">
+      <link rel="icon" type="image/svg+xml" href="{{ 'favicon.svg' | asset_url }}">
+      <link rel="icon" type="image/png" sizes="48x48" href="{{ 'favicon-48x48.png' | asset_url }}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32x32.png' | asset_url }}">
+      <link rel="apple-touch-icon" sizes="192x192" href="{{ 'favicon.png' | asset_url }}">
+      <link rel="shortcut icon" href="{{ 'favicon.ico' | asset_url }}">
     {%- endif -%}
 
     <title>
       {%- if request.page_type == 'index' -%}
-        Fiavelle &ndash; Conjuntos de Lencer&iacute;a Femenina a Tu Medida en Chile
+        Fiavelle – Conjuntos de Lencería Femenina en Chile
       {%- else -%}
         {{ page_title }}
-        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+        {%- if current_tags %} – tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} – Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} – {{ shop.name }}{% endunless -%}
       {%- endif -%}
     </title>
 
@@ -55,10 +57,11 @@
 
     <!-- Font styles handled by Google Fonts and fiavelle.css -->
 
-    <!-- Google Fonts (Poppins only) -->
+    <!-- Google Fonts (Poppins only - non-blocking preload) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
 
     <!-- Custom Brand Typography (Collection Morning) -->
     <link rel="preload" href="{{ 'CollectionMorning.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
