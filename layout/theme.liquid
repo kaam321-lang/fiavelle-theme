@@ -10,13 +10,21 @@
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- else -%}
+      <link rel="icon" type="image/svg+xml" href="{{ 'logo.svg' | asset_url }}">
+      <link rel="icon" type="image/png" href="{{ 'logo.png' | asset_url }}">
+      <link rel="apple-touch-icon" href="{{ 'logo.png' | asset_url }}">
     {%- endif -%}
 
     <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- if request.page_type == 'index' -%}
+        Fiavelle &ndash; Conjuntos de Lencer&iacute;a Femenina a Tu Medida en Chile
+      {%- else -%}
+        {{ page_title }}
+        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- endif -%}
     </title>
 
     {%- if page_description -%}
