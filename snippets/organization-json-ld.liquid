@@ -1,0 +1,70 @@
+{%- comment -%}
+  Renders Organization, OnlineStore and WebSite Schema.org JSON-LD
+  Optimized for Google Rich Results, Local Search (Chile) and AI Answer Engines (AEO / GEO)
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "OnlineStore"],
+      "@id": "{{ shop.url }}/#organization",
+      "name": "Fiavelle",
+      "legalName": "Fiavelle SpA",
+      "url": "{{ shop.url }}",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "{{ shop.url }}/#logo",
+        "url": "{{ 'logo.svg' | asset_url | prepend: 'https:' }}",
+        "caption": "Fiavelle"
+      },
+      "image": "{{ 'logo.svg' | asset_url | prepend: 'https:' }}",
+      "description": "Tienda online de lencería femenina exclusiva en Chile. Conjuntos a medida con combinación de tallas de top y calzón, batas y babydolls con despacho a todo el país.",
+      "telephone": "+56941944494",
+      "email": "contacto@fiavelle.cl",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CL",
+        "addressRegion": "Región Metropolitana",
+        "addressLocality": "Santiago"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Chile"
+      },
+      "priceRange": "$$",
+      "currenciesAccepted": "CLP",
+      "paymentAccepted": "Credit Card, Debit Card, Mercado Pago, Transferencia Bancaria",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+56941944494",
+        "contactType": "customer service",
+        "availableLanguage": ["Spanish"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/fiavelle.cl",
+        "https://wa.me/56941944494"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ shop.url }}/#website",
+      "url": "{{ shop.url }}",
+      "name": "Fiavelle",
+      "description": "Lencería Femenina Exclusiva en Chile",
+      "publisher": {
+        "@id": "{{ shop.url }}/#organization"
+      },
+      "inLanguage": "{{ request.locale.iso_code }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ shop.url }}/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>

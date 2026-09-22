@@ -28,17 +28,35 @@
 
       <!-- Centro: Logo -->
       <div class="header__center-group">
-        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="{{ shop.name }}">
-          <img
-            src="{{ 'logo.svg' | asset_url }}"
-            class="header__heading-logo"
-            alt="{{ shop.name | escape }}"
-            width="{{ section.settings.logo_width }}"
-            height="60"
-            loading="eager"
-            style="max-width: {{ section.settings.logo_width }}px; height: auto; display: block;"
-          >
-        </a>
+        {%- if request.page_type == 'index' -%}
+          <h1 class="header__heading" style="margin: 0; line-height: 0;">
+            <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="{{ shop.name }}">
+              <img
+                src="{{ 'logo.svg' | asset_url }}"
+                class="header__heading-logo"
+                alt="{{ shop.name | escape }} — Lencería Femenina y Conjuntos en Chile"
+                width="{{ section.settings.logo_width }}"
+                height="60"
+                loading="eager"
+                style="max-width: {{ section.settings.logo_width }}px; height: auto; display: block;"
+              >
+            </a>
+          </h1>
+        {%- else -%}
+          <div class="header__heading" style="margin: 0; line-height: 0;">
+            <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset" aria-label="{{ shop.name }}">
+              <img
+                src="{{ 'logo.svg' | asset_url }}"
+                class="header__heading-logo"
+                alt="{{ shop.name | escape }}"
+                width="{{ section.settings.logo_width }}"
+                height="60"
+                loading="eager"
+                style="max-width: {{ section.settings.logo_width }}px; height: auto; display: block;"
+              >
+            </a>
+          </div>
+        {%- endif -%}
       </div>
 
       <!-- Derecha: Cuenta + Carrito -->

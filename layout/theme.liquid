@@ -19,9 +19,14 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if page_description %}
+    {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
+    {%- else -%}
+      <meta name="description" content="Descubre en Fiavelle la más exclusiva colección de lencería femenina en Chile. Conjuntos personalizados, batas y babydolls con envío rápido a todo el país.">
+    {%- endif -%}
+
+    {%- render 'meta-tags' -%}
+    {%- render 'organization-json-ld' -%}
 
     <meta name="google-site-verification" content="F8GUQDoEF4xS6ElFOMXbRyret1XPCVjJjptkFfAtGwc">
 
